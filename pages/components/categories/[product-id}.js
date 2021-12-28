@@ -1,26 +1,40 @@
 import styles from '../../../styles/Product.module.css'
+import Image from 'next/image'
+import testImg from '../../../testbild.jpg'
 
-export default function Product({props}) {
-
-
+export default function Product() {
+	let props = [
+		{
+			title: "en titel",
+			img: testImg,
+			description: "beskrivning",
+			price: 20,
+			stock: 5
+		}
+	]
 	return (
 		<div className={styles.productContainer}>
 			<div className={styles.productDiv}>
-					<p>
-						{props.title}
-					</p>
 				<div className={styles.productImg}>
-					<img src={props.img}/>
+					<Image
+						src={props[0].img}
+						width={300}
+						height={300}
+						/* layout='responsive' */
+					/>
 				</div>
 				<div className={styles.productInfo}>
 					<p>
-						{props.description}
+						{props[0].title}
 					</p>
 					<p>
-						{props.price}
+						{props[0].price}
 					</p>
 					<p>
-						{props.stock}
+						{props[0].stock}
+					</p>
+					<p>
+						{props[0].description}
 					</p>
 				</div>
 			</div>

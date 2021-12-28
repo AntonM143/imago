@@ -1,12 +1,16 @@
 import styles from '../../styles/Home.module.css'
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
 	return (
 		<div className={styles.footer}>
 			<div className={styles.footerDiv}>
-				<i className="fa fa-twitter"/>
-				<i className="fa fa-facebook"/>
-				<i className="fa fa-instagram"/>
+				<FaFacebookF/>
+				<FaTwitter/>
+				<FaInstagram/>
+			</div>
+			<div className={styles.footerDiv}>
+				<p>nån text om imago</p>
 			</div>
 		</div>
 	)
