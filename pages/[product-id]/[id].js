@@ -1,6 +1,6 @@
-import styles from '../../../styles/Product.module.css'
+import styles from './Product.module.css'
 import Image from 'next/image'
-import testImg from '../../../testbild.jpg'
+import testImg from '../../testbild.jpg'
 
 export default function Product() {
 	let props = [

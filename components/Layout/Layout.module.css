@@ -1,0 +1,12 @@
+.container {
+  padding: 0 2rem;
+}
+
+.layoutMain {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	background-color: indigo;
+	width: 100vw;
+	height: 84vh;
+}

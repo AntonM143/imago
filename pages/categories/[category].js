@@ -1,6 +1,6 @@
-import styles from '../../../styles/Product.module.css'
+import styles from './Categories.module.css'
 
-export default function Category({props}) {
+export default function Category(props) {
 
 	return (
 		<div className={styles.productContainer}>
