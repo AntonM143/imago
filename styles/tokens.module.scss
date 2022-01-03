@@ -1,13 +1,15 @@
 /* Colors */
-$color-black: #1E1E20;
+$color-coal: #1E1E20;
 $color-dark-grey: #2A2C2B;
 $color-grey: #374140;
 $color-sand: #D9CB9E;
+$color-white: #FFFF;
 $color-red: #DC3522;
 $color-green: #10E83D;
 
 /* Font size */
-
+$font-size-md: 0.8rem;
+$font-size-lg: '1px';
 
 /* Spacing */
 
@@ -18,3 +20,10 @@ $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
+
+/* Mixins */
+
+@mixin display-flex($direction) {
+  display: flex;
+  flex-direction: $direction;
+}
