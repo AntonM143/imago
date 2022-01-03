@@ -1,39 +1,39 @@
-import Link from 'next/link'
-import styles from './Header.module.css'
+import React from 'react';
+import Image from 'next/image';
+import classes from './Header.module.scss';
+import { FaSearch } from "react-icons/fa";
+import { FiShoppingBag } from 'react-icons/fi';
 
-export default function Header() {
-	return (
-		<div className={styles.headerNav}>
-			<div className={styles.headerDivider}>
-				<div>
-					LOGO
-				</div>
-				<Link href="/">
-					<a>
-						Hem
-					</a>
-				</Link>
-				<Link href="/categories">
-					<a>
-						Kategorier
-					</a>
-				</Link>
-				<Link href="/contactUs">
-					<a>
-						Kontakta oss
-					</a>
-				</Link>
-				<Link href="/checkOut">
-					<a>
-						Kassa
-					</a>
-				</Link>
-			</div>
-			<div className={styles.headerDivider}>
-				<div>
-					<p>Sök</p>
-				</div>
-			</div>
-		</div>
-	)
+const Header = () => {
+  return (
+    <header className={classes.headerContainer}>
+      <section className={classes.headerBar}>
+        <nav className={classes.headerMainNav}>
+          <div>
+            <Image 
+              src="/images/icnimage-logo.png"
+              alt="logo"
+              width={436}
+              height={105}
+            />
+          </div>
+          <ul>
+            <li>Hem</li>
+            <li>Alla Produkter</li>
+            <li>Kategorier</li>
+          </ul>
+        </nav>
+        <nav className={classes.headerSecondaryNav}>
+          <button>
+            <FaSearch />
+          </button>
+          <button>
+            <FiShoppingBag />
+          </button>
+        </nav>
+      </section>
+    </header>
+  )
 }
+
+export default Header
