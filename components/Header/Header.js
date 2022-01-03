@@ -37,11 +37,3 @@ const Header = () => {
 }
 
 export default Header
-
-
-{/* <Image 
-src="/images/icnimage-logo.png"
-alt="logo"
-width={436}
-height={105}
-/> */}
