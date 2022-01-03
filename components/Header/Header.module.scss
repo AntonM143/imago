@@ -3,9 +3,6 @@
 .headerContainer {
   width: 100%;
   padding: 1rem 0;
-  h1 {
-    color: $color-green;
-  }
   .headerBar {
     @include display-flex(row);
     justify-content: space-between;

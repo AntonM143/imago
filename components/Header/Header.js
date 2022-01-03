@@ -7,7 +7,6 @@ import { FiShoppingBag } from 'react-icons/fi';
 const Header = () => {
   return (
     <header className={classes.headerContainer}>
-      <h1>HEJ</h1>
       <section className={classes.headerBar}>
         <nav className={classes.headerMainNav}>
           <div>
