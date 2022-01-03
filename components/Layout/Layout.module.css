@@ -6,7 +6,8 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	background-color: indigo;
+	align-items: center;
+	background-color: peru;
 	width: 100vw;
 	height: 84vh;
 }

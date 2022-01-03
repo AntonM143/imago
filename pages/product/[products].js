@@ -5,14 +5,13 @@ import styles from './Product.module.css'
 import { useRouter } from 'next/router'
 
 
-export default function index() {
+export default function Product() {
 
 	const handleClick = (e) => {
-		console.log(e);
+		console.log(e, "e");
 		e.preventDefault()
 		router.push({
-			pathname: '/product',
-			query: {id: e.target.parentElement.id}
+			pathname: `/${router.query.products}/${e.target.id}`,
 		})
 	}
 
@@ -71,28 +70,31 @@ export default function index() {
 		},
 	]
 	let html = []
-	console.log(router.query.name);
+	console.log(router.query.products, "query");
 	props.forEach((item) => {
+		if(router.query.products == item.category) {
+			console.log(item.category);
+			html.push(
+				<div
+					className={styles.box}
+					key={unique++}
+					onClick={handleClick}
+					id={item.id}
+				>
+					<div className={styles.name}>
+						{item.title}
+					</div>
+					<div className={styles.img}>
+						 <Image
+							src={item.img}
+							width={200}
+							height={200}
+						/>
+					</div>
+				</div>
+			)
+		}
 
-		html.push(
-			<div
-				className={styles.box}
-				key={unique++}
-				onClick={handleClick}
-				id={item.id}
-			>
-				<div className={styles.name}>
-					{item.title}
-				</div>
-				<div className={styles.img}>
-				 	<Image
-						src={item.img}
-						width={200}
-						height={200}
-					/>
-				</div>
-			</div>
-		)
 
 	})
 	return (

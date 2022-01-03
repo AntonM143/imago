@@ -3,7 +3,11 @@ import styles from './Categories.module.css'
 export default function Category(props) {
 
 	return (
-		<div className={styles.productContainer}>
+		<div>
+
+			asdasds
+		</div>
+		/* <div className={styles.productContainer}>
 			<div className={styles.productDiv}>
 					<p>
 						{props.title}
@@ -12,6 +16,6 @@ export default function Category(props) {
 					<img src={props.img}/>
 				</div>
 			</div>
-		</div>
+		</div> */
 	)
 }
