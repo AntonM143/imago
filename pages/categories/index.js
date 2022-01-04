@@ -7,13 +7,13 @@ import { useRouter } from 'next/router'
 
 
 export default function index() {
-	const handleClick = (e) => {
+/* 	const handleClick = (e) => {
 		console.log(e.target.innerText);
 		e.preventDefault()
 		router.push({
 			pathname: `/product/${e.target.innerText}`,
 		})
-	}
+	} */
 
 	const router = useRouter()
 
