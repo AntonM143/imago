@@ -1,21 +1,12 @@
 import styles from './Categories.module.css'
-
+import { useRouter } from 'next/router'
 export default function Category(props) {
-
+	const router = useRouter();
+	const {category} = router.query;
 	return (
 		<div>
-
-			asdasds
+			{category}
+			<h1>Product List page</h1>
 		</div>
-		/* <div className={styles.productContainer}>
-			<div className={styles.productDiv}>
-					<p>
-						{props.title}
-					</p>
-				<div className={styles.productImg}>
-					<img src={props.img}/>
-				</div>
-			</div>
-		</div> */
 	)
 }
