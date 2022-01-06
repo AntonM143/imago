@@ -1,0 +1,34 @@
+/* cart */
+.container {
+	display: flex;
+	margin: auto;
+	flex-direction: column;
+}
+
+.header {
+	text-align: center;
+
+}
+
+.boxImage {
+	width: 32vw;
+}
+
+.increaseDecrease {
+	display: flex;
+	justify-content: center;
+	width: 6vw;
+}
+
+.containerPrice {
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.total {
+	display: flex;
+	justify-content: flex-end;
+
+}
