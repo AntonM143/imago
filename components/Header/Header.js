@@ -3,6 +3,8 @@ import Image from 'next/image';
 import classes from './Header.module.scss';
 import { FaSearch } from "react-icons/fa";
 import { FiShoppingBag } from 'react-icons/fi';
+import Link from 'next/link';
+
 
 const Header = () => {
   return (
@@ -10,7 +12,7 @@ const Header = () => {
       <section className={classes.headerBar}>
         <nav className={classes.headerMainNav}>
           <div>
-            <Image 
+            <Image
               src="/images/icnimage-logo.png"
               alt="logo"
               width={436}
@@ -20,7 +22,7 @@ const Header = () => {
           <ul>
             <li>Hem</li>
             <li>Alla Produkter</li>
-            <li>Kategorier</li>
+            <li><Link href={"/categories"}>Kategorier</Link></li>
           </ul>
         </nav>
         <nav className={classes.headerSecondaryNav}>
@@ -28,7 +30,8 @@ const Header = () => {
             <FaSearch />
           </button>
           <button>
-            <FiShoppingBag />
+			<Link href={'/cart'}><FiShoppingBag/></Link>
+
           </button>
         </nav>
       </section>
