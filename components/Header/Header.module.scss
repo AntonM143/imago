@@ -3,11 +3,17 @@
 .headerContainer {
   width: 100%;
   padding: 1rem 0;
+  position: relative;
+  z-index: 10;
+  background-color: $color-white;
   .headerBar {
     @include display-flex(row);
     justify-content: space-between;
-    width: calc(100% - 3rem);
+    width: 100%; 
     margin: 0 auto;
+    @media (min-width: $breakpoint-md) {
+      width: calc(100% - 3rem);
+    }
     div {
       width: 120px;
       padding-right: 1rem; 
@@ -15,11 +21,19 @@
     .headerMainNav {
       @include display-flex(row);
       align-items: center;
+      .headerMenuBtn {
+        @include display-flex(row);
+        margin: 0 1rem;
+        border: none;
+        background: none;
+        @media (min-width: $breakpoint-md) {
+          display: none;
+        }
+      }
       ul {
         display: none;
         @media (min-width: $breakpoint-md) {
           @include display-flex(row);
-          list-style: none;
         }
         li {
           cursor: pointer;
