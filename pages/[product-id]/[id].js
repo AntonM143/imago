@@ -4,76 +4,47 @@ import testImg from '../../testbild.jpg'
 import { FaCartPlus } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { getLocalstorage, setLocalstorage } from '../../components/localstorage/localstorage'
+import { useEffect } from 'react/cjs/react.development'
+
+
 
 export default function Product() {
-	const [cart, setCart] = useState({ items: [], totalAmount: 0 });
-
-	if (typeof window !== 'undefined') {
-		// Perform localStorage action
-		const local = localStorage.getItem('cart')
-	  }
-	const setLocalstorage = (items) => {
-		localStorage.setItem('cart', JSON.stringify(items))
-	  }
-
-	const getLocalstorage = () => {
-		let storedData = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null
-		return storedData;
-	}
-
-	const savedCart = getLocalstorage();
+	const [cart, setCart] = useState(savedCart);
+	//const savedCart = getLocalstorage();
 	const router = useRouter()
+	useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cart))
+	}, [cart])
 
 	let props = [
 		{
-			title: "PRODUKTTITEL",
-			img: testImg,
+			name: "PRODUKTTITEL",
+			imgUrl: testImg,
 			description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
 			price: 20,
-			stock: 5
+			stock: 5,
+			id: 1,
+			quantity: 10,
+			type: ''
 		}
 	]
 
 	const addProductToCart = (item) => {
-		const existingIndex = cart.items.findIndex(product => item.id === product.id);
+		/* const existingIndex = cart.items.findIndex(product => item.id === product.id);
 		if(existingIndex !== -1) {
 		  const products = updateProductQuantity(cart, existingIndex, item.type);
 		  const totalAmount = calcTotalAmount(products);
 		  setCart({ ...cart, items: products, totalAmount });
 		  setLocalstorage({ ...cart, items: products, totalAmount });
-		} else {
-		  const updatedCart = cart.items.concat(item);
-		  const totalAmount = calcTotalAmount(updatedCart);
+		} else { */
+/* 		  const updatedCart = cart.items.concat(item);
+ */		  console.log(cart);
+/* 		  const totalAmount = calcTotalAmount(updatedCart);
 		  setCart({ ...cart, items: updatedCart, totalAmount});
 		  setLocalstorage({ ...cart, items: updatedCart, totalAmount });
-		}
+ */		/* } */
 	  }
-/* 	const updProduct = (id, products, product) => {
-		console.log(products);
-		products.push({'id': id, 'qty': product.qty + 1})
-		localStorage.setItem('cart', JSON.stringify(products))
-	}
-
-	const addProduct = (id) => {
-		let products = []
-		if(localStorage.getItem('cart')) {
-			products = JSON.parse(localStorage.getItem('cart'))
-			products.forEach((product)  => {
-				if(product.id == id) {
-					updProduct(id, products, product)
-
-				}else {
-					products.push({'id': id, 'qty': 1})
-					localStorage.setItem('cart', JSON.stringify(products))
-				}
-			})
-
-		}else {
-			products.push({'id': id, 'qty': 1})
-			localStorage.setItem('cart', JSON.stringify(products))
-		}
-
-	} */
 	const handleClick = (e) => {
 		e.preventDefault
 		let id = e.target.id
@@ -85,7 +56,7 @@ export default function Product() {
 			<div className={styles.productDiv}>
 				<div className={styles.productImg}>
 					<Image
-						src={props[0].img}
+						src={props[0].imgUrl}
 						width={400}
 						height={500}
 						/* layout='responsive' */

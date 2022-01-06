@@ -30,7 +30,8 @@ const Header = () => {
             <FaSearch />
           </button>
           <button>
-            <FiShoppingBag />
+			<Link href={'/cart'}><FiShoppingBag/></Link>
+
           </button>
         </nav>
       </section>
