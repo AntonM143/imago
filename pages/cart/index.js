@@ -16,6 +16,7 @@ export default function Cart() {
 
 	}, [cart])
  */
+
 	let testProd = [
 		{
 			name: "PRODUKTTITEL",
