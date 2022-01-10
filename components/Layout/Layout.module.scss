@@ -1,0 +1,7 @@
+@use '../../styles/tokens.module.scss' as *;
+
+.layoutMain {
+  @include display-flex(column);
+  align-items: center;
+  width: 100%;
+}

@@ -16,14 +16,13 @@
     }
     div {
       width: 120px;
-      padding-right: 1rem; 
     }
     .headerMainNav {
       @include display-flex(row);
       align-items: center;
       .headerMenuBtn {
         @include display-flex(row);
-        margin: 0 1rem;
+        margin: 0 0.8rem;
         border: none;
         background: none;
         @media (min-width: $breakpoint-md) {

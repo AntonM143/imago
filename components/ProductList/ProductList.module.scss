@@ -1,8 +1,6 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .container {
-  max-width: 1200px;
-  header {
-    margin: 1rem 0;
-  }
+  @include display-flex(row);
+  flex-wrap: wrap;
 }
