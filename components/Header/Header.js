@@ -5,10 +5,33 @@ import classes from './Header.module.scss';
 import { FaSearch } from "react-icons/fa";
 import { FiShoppingBag } from 'react-icons/fi';
 import Link from 'next/link';
-
+import SearchBar from '../Searchbar/SearchBar';
+import testImg from '../../testbild.jpg'
 
 const Header = () => {
 const { toggleMenu } = useContext(UIContext);
+let testProd = [
+	{
+		title: "PRODUKTTITEL",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 200,
+		stock: 5,
+		id: 1,
+		quantity: 1,
+		type: ''
+	},
+	{
+		title: "PRODUKTTITEL2",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 199,
+		stock: 5,
+		id: 1,
+		quantity: 1,
+		type: ''
+	}
+]
   return (
     <>
       <header className={classes.headerContainer}>
@@ -36,10 +59,12 @@ const { toggleMenu } = useContext(UIContext);
           </nav>
           <nav className={classes.headerSecondaryNav}>
             <button >
-              <FaSearch />
+				<FaSearch>
+				</FaSearch>
+					<SearchBar placeholder={"sök..."} data={testProd}/>
             </button>
             <button>
-              <FiShoppingBag />
+            	<Link href={'/cart'}><FiShoppingBag/></Link>
             </button>
           </nav>
         </section>
