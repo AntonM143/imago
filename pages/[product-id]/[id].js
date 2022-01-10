@@ -10,12 +10,12 @@ import { useEffect } from 'react/cjs/react.development'
 
 
 export default function Product() {
-	const [cart, setCart] = useState(savedCart);
+	// const [cart, setCart] = useState(savedCart);
 	//const savedCart = getLocalstorage();
 	const router = useRouter()
-	useEffect(() => {
-		localStorage.setItem('cart', JSON.stringify(cart))
-	}, [cart])
+	// useEffect(() => {
+	// 	localStorage.setItem('cart', JSON.stringify(cart))
+	// }, [cart])
 
 	let props = [
 		{
@@ -39,7 +39,7 @@ export default function Product() {
 		  setLocalstorage({ ...cart, items: products, totalAmount });
 		} else { */
 /* 		  const updatedCart = cart.items.concat(item);
- */		  console.log(cart);
+//  */		  console.log(cart);
 /* 		  const totalAmount = calcTotalAmount(updatedCart);
 		  setCart({ ...cart, items: updatedCart, totalAmount});
 		  setLocalstorage({ ...cart, items: updatedCart, totalAmount });

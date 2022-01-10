@@ -19,10 +19,54 @@ let testProd = [
 		stock: 5,
 		id: 1,
 		quantity: 1,
+		type: '',
+
+	},
+	{
+		title: "apa1",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 199,
+		stock: 5,
+		id: 10,
+		quantity: 1,
+		type: '',
+		category: 'hus'
+
+	},
+	{
+		title: "apa6",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 199,
+		stock: 5,
+		id: 1,
+		quantity: 1,
+		type: '',
+		category: 'land'
+	},
+	{
+		title: "apa5",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 199,
+		stock: 5,
+		id: 1,
+		quantity: 1,
 		type: ''
 	},
 	{
-		title: "PRODUKTTITEL2",
+		title: "apa4",
+		imgUrl: testImg,
+		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
+		price: 199,
+		stock: 5,
+		id: 1,
+		quantity: 1,
+		type: ''
+	},
+	{
+		title: "apa3",
 		imgUrl: testImg,
 		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
 		price: 199,
@@ -44,7 +88,7 @@ let testProd = [
                 <rect y="30" width="100" height="5"></rect>
               </svg>
             </button>
-            <div>
+            <div className={classes.logo}>
               <Image
                 src="/images/icnimage-logo.png"
                 alt="logo"
@@ -58,14 +102,10 @@ let testProd = [
             </ul>
           </nav>
           <nav className={classes.headerSecondaryNav}>
-            <button >
-				<FaSearch>
-				</FaSearch>
-					<SearchBar placeholder={"sök..."} data={testProd}/>
-            </button>
-            <button>
-            	<Link href={'/cart'}><FiShoppingBag/></Link>
-            </button>
+			<SearchBar placeholder={"sök..."} data={testProd}/>
+			<div>
+				<Link href={'/cart'}><FiShoppingBag/></Link>
+			</div>
           </nav>
         </section>
       </header>
