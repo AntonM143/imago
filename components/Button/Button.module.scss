@@ -1,0 +1,40 @@
+@use '../../styles/tokens.module.scss' as *;
+
+.appBtn {
+  @include display-flex(row);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: $color-white;
+  padding: 1rem 0;
+  width: 100%;
+  svg {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.sand {
+  background-color: $color-sand;
+  &:hover {
+    background-color: darken($color-sand, 10%);
+  }
+}
+.red {
+  background-color: $color-red;
+  &:hover {
+    background-color: darken($color-red, 10%);
+  }
+}
+.coal {
+  background-color: $color-coal;
+  &:hover {
+    background-color: darken($color-coal, 10%);
+  }
+}
+.green {
+  background-color: $color-green;
+  &:hover {
+    background-color: darken($color-green, 10%);
+  }
+}

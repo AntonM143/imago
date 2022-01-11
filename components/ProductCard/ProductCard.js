@@ -1,9 +1,18 @@
-import Image from 'next/image'
-import styles from './ProductCard.module.scss'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import styles from './ProductCard.module.scss';
 
-const ProductCard = ({ title, price, img }) => {
+const ProductCard = ({ id, title, price, img }) => {
+  const router = useRouter();
+  const handleClick = (id) => {
+    console.log(id);
+    router.push({
+      pathname: `/products/${id}`
+    })
+  }
+
   return (
-    <div className={styles.ProductCardContainer}>
+    <div onClick={() => {handleClick(id)}} className={styles.ProductCardContainer}>
       <section className={styles.img}>
       <section>
         <Image
