@@ -9,13 +9,15 @@
   .headerBar {
     @include display-flex(row);
     justify-content: space-between;
-    width: 100%; 
+    width: 100%;
     margin: 0 auto;
     @media (min-width: $breakpoint-md) {
       width: calc(100% - 3rem);
     }
-    div {
+    .logo {
       width: 120px;
+      padding-right: 1rem;
+
     }
     .headerMainNav {
       @include display-flex(row);
@@ -41,15 +43,13 @@
       }
     }
     .headerSecondaryNav {
-      @include display-flex(row);
-      align-items: center;
-      button {
-        cursor: pointer;
-        border: none;
-        background: none;
-        padding: 0 1rem;
-        font-size: 1.5rem;
-      }
+      	@include display-flex(row);
+      	align-items: center;
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 0 1rem;
+		font-size: 1.5rem;
     }
   }
 }
