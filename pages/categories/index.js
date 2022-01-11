@@ -2,20 +2,8 @@ import Image from 'next/image'
 import React from 'react'
 import TestBild from '../../testbild.jpg'
 import styles from './Categories.module.css'
-import { useRouter } from 'next/router'
-
-
 
 export default function index() {
-/* 	const handleClick = (e) => {
-		console.log(e.target.innerText);
-		e.preventDefault()
-		router.push({
-			pathname: `/product/${e.target.innerText}`,
-		})
-	} */
-
-	const router = useRouter()
 
 	let unique =  -1
 	let props = [

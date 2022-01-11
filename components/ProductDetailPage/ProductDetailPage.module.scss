@@ -1,0 +1,29 @@
+@use '../../styles/tokens.module.scss' as *;
+
+.productDetailContainer {
+  @include display-flex(row);
+  justify-content: space-between;
+  max-width: 1200px;
+}
+
+.galleryContainer {
+  @include display-flex(row);
+  flex:1;
+  padding: 0 1rem;
+  background-color: red;
+}
+  .productImg {
+    width: 100%;
+    height: auto;
+  }
+
+  .productInfoContainer {
+    flex: 1;
+  }
+
+
+@media (max-width: $breakpoint-md) {
+  .productDetailContainer {
+    @include display-flex(column);
+  }
+}
