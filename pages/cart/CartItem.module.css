@@ -2,17 +2,18 @@
 	display: flex;
 	align-items: center;
 	margin: auto;
+	width: 60vw;
 }
 
 .containerImage {
 	display: flex;
 	align-items: center;
 	flex-direction: row;
-	width: 30vw;
+	width: 60%;
 }
 
 .boxImage {
-	width: 50%;
+	width: 40%;
 }
 
 .name{
@@ -22,7 +23,6 @@
 .increaseDecrease {
 	display: flex;
 	justify-content: center;
-	width: 6vw;
 }
 
 .containerPrice {
@@ -33,6 +33,7 @@
 	display: flex;
 	justify-content: flex-end;
 	height: 100%;
+	width: 40%;
 }
 
 .rightSideBox {

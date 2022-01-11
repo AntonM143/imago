@@ -1,0 +1,37 @@
+.search {
+	display: flex;
+	position: relative;
+	width: 20vw;
+}
+
+.searchInputs {
+	display: flex;
+	margin-right: 1em;
+	align-items: center;
+	border: 0;
+	border-radius: 2px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+}
+
+.searchIcon {
+	margin-right: 1em;
+}
+
+.searchResult {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	z-index: 1000;
+	width: 70%;
+	background-color: blue;
+	margin-top: 1.5em;
+	font-size: 1.5rem;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	overflow: hidden;
+	overflow-y: auto;
+
+
+}
