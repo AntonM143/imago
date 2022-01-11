@@ -11,7 +11,9 @@ import { useEffect } from 'react/cjs/react.development'
 
 export default function Product() {
 	// const [cart, setCart] = useState(savedCart);
-	//const savedCart = getLocalstorage();
+
+	// //const savedCart = getLocalstorage();
+
 	const router = useRouter()
 	// useEffect(() => {
 	// 	localStorage.setItem('cart', JSON.stringify(cart))
