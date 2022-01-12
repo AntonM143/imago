@@ -3,5 +3,6 @@
 .layoutMain {
   @include display-flex(column);
   align-items: center;
-  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
 }

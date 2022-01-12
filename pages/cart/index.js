@@ -8,7 +8,7 @@ import styles from './Cart.module.css'
 import CartItem from './CartItem';
 
 
-export default function Cart() {
+const Cart = () => {
 	const [cart, setCart] = useState({items: {id: 3, price: 200, quantity: 1, imgUrl: testImg, name: "testProdukt"
 }, totalAmount: 0})
 
@@ -93,3 +93,5 @@ export default function Cart() {
 		</div>
 	  );
 }
+
+export default Cart;

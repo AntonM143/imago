@@ -1,7 +1,7 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .container {
-  max-width: 1200px;
+  width: 100%;
   header {
     margin: 1rem 0;
   }
