@@ -4,10 +4,10 @@ import { MongoClient, ObjectId } from 'mongodb';
  export default async function handler(req, res) {
    const client = await MongoClient.connect(process.env.URI);
    const db = client.db();
-   const productCollection = db.collection('products'); //Connect to collection.
+   const categoryCollection = db.collection('category'); //Connect to collection.
 
-   const result = await productCollection.findOne({ "_id": ObjectId(req.query.id) });
-//    const resultAll = await productCollection.find().toArray();
+//    const result = await productCollection.findOne({ "categoryId": ObjectId(req.query.id) });
+   const result = await categoryCollection.find().toArray();
 
    client.close(); //close connection
    res.status(200).json(result);

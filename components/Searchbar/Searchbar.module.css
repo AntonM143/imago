@@ -26,12 +26,14 @@
 	position: absolute;
 	z-index: 1000;
 	width: 70%;
-	background-color: blue;
+	background-color: grey;
 	margin-top: 1.5em;
 	font-size: 1.5rem;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	overflow: hidden;
 	overflow-y: auto;
+}
 
-
+.result {
+	margin: 1em 0;
 }
