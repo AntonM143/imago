@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import TestBild from '../../testbild.jpg'
-import styles from './Categories.module.css'
+import styles from './Categories.module.scss'
 
 export default function index() {
 
@@ -31,7 +31,7 @@ export default function index() {
 			<div
 				className={styles.box}
 				key={unique++}
-				onClick={handleClick}
+				// onClick={handleClick}
 			>
 				<div className={styles.name}>
 					{category.title}

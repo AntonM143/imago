@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './SearchBar.module.css'
 import { FaSearch, FaWindowClose } from "react-icons/fa";
 import { useRouter } from 'next/router'
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ placeholder }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+  const [data, setData] = useState(null)
   const router = useRouter()
 
+  useEffect(() => {
+		async function get() {
+			const response = await fetch('api/allProducts')
+			const data = await response.json()
+			setData(data)
+		}
+		get()
+	}, [])
+
   const handleFilter = (event) => {
+
+	  console.log(event.target.value);
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
+
+    const newFilter = data ? data.filter((value) => {
       return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
+    }) : "";
 
     if (searchWord === "") {
       setFilteredData([]);
@@ -26,17 +39,16 @@ function SearchBar({ placeholder, data }) {
     setWordEntered("");
   };
 
-  const handleClick = (e) => {
-	e.preventDefault()
-	console.log(e, "e");
-	let target = e.target
+  const handleClick = (id) => {
+	  console.log(id);
 	router.push({
-		pathname: `/${target.dataset.space}/${target.dataset.id}`,
+		pathname: `/product/${id}`,
 	})
 	clearInput()
 
 
-}
+	}
+
   return (
 	<div className={styles.search}>
 		<div className={styles.searchInputs}>
@@ -45,7 +57,6 @@ function SearchBar({ placeholder, data }) {
 				placeholder={placeholder}
 				value={wordEntered}
 				onChange={handleFilter}
-				on
 			/>
 		</div>
 		<div className={styles.searchIcon}>
@@ -60,9 +71,9 @@ function SearchBar({ placeholder, data }) {
 			{filteredData.slice(0, 15).map((value, key) => {
 				return (
 					<p
-						onClick={handleClick}
-						data-space={value.category}
-						data-id={value.id}
+						className={styles.result}
+						onClick={() => handleClick(value._id)}
+						key={key}
 					>
 						{value.title}
 					</p>

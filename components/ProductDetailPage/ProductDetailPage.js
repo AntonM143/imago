@@ -5,6 +5,7 @@ import Button from '../Button/Button';
 import styles from './ProductDetailPage.module.scss';
 
 const ProductDetailPage = (props) => {
+	console.log(props);
   return (
     <div className={styles.productDetailContainer}>
       {/* ----------- ProductGallery ------------- */}
@@ -32,7 +33,7 @@ const ProductDetailPage = (props) => {
         </div>
         <div>
           <Button color="sand">
-            Lägg till i kundvagn 
+            Lägg till i kundvagn
             <FiShoppingBag />
           </Button>
         </div>

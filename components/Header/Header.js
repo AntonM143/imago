@@ -7,75 +7,21 @@ import { FiShoppingBag } from 'react-icons/fi';
 import Link from 'next/link';
 import SearchBar from '../Searchbar/SearchBar';
 import testImg from '../../testbild.jpg'
+import { useRouter } from 'next/router';
 
 const Header = () => {
-const { toggleMenu } = useContext(UIContext);
-let testProd = [
-	{
-		title: "PRODUKTTITEL",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 200,
-		stock: 5,
-		id: 1,
-		quantity: 1,
-		type: '',
+	const { toggleMenu } = useContext(UIContext);
+	const router = useRouter();
 
-	},
-	{
-		title: "apa1",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 199,
-		stock: 5,
-		id: 10,
-		quantity: 1,
-		type: '',
-		category: 'hus'
+	const handleClick = () => {
+	  router.push({
+		  pathname: `/`,
+	  })
 
-	},
-	{
-		title: "apa6",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 199,
-		stock: 5,
-		id: 1,
-		quantity: 1,
-		type: '',
-		category: 'land'
-	},
-	{
-		title: "apa5",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 199,
-		stock: 5,
-		id: 1,
-		quantity: 1,
-		type: ''
-	},
-	{
-		title: "apa4",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 199,
-		stock: 5,
-		id: 1,
-		quantity: 1,
-		type: ''
-	},
-	{
-		title: "apa3",
-		imgUrl: testImg,
-		description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-		price: 199,
-		stock: 5,
-		id: 1,
-		quantity: 1,
-		type: ''
-	}
-]
+
+	  }
+
+
   return (
     <>
       <header className={classes.headerContainer}>
@@ -97,14 +43,20 @@ let testProd = [
               />
             </div>
             <ul>
-              <li>Hem</li>
+              	<li onClick={handleClick}>
+					Hem
+				</li>
               <li onClick={toggleMenu}>Produkter</li>
             </ul>
           </nav>
           <nav className={classes.headerSecondaryNav}>
-			<SearchBar placeholder={"sök..."} data={testProd}/>
+			<SearchBar placeholder={"sök..."}/>
 			<div>
-				<Link href={'/cart'}><FiShoppingBag/></Link>
+				<Link href={'/cart'}>
+					<a>
+						<FiShoppingBag/>
+					</a>
+				</Link>
 			</div>
           </nav>
         </section>

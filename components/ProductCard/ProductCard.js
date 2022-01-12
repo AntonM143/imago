@@ -5,18 +5,16 @@ import styles from './ProductCard.module.scss';
 const ProductCard = ({ id, title, price, img }) => {
   const router = useRouter();
   const handleClick = (id) => {
-    console.log(id);
     router.push({
-      pathname: `/products/${id}`
+      pathname: `/product/${id}`
     })
   }
-
   return (
     <div onClick={() => {handleClick(id)}} className={styles.ProductCardContainer}>
       <section className={styles.img}>
       <section>
         <Image
-            src={img}
+            src={img[0]}
             alt={title}
             width={276}
             height={368}
