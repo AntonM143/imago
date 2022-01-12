@@ -104,7 +104,9 @@ let testProd = [
           <nav className={classes.headerSecondaryNav}>
 			<SearchBar placeholder={"sök..."} data={testProd}/>
 			<div>
-				<Link href={'/cart'}><FiShoppingBag/></Link>
+				<Link href="/cart">
+					<a><FiShoppingBag/></a>
+				</Link>
 			</div>
           </nav>
         </section>

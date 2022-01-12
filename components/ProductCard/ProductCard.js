@@ -22,6 +22,7 @@ const ProductCard = ({ id, title, price, img }) => {
             height={368}
             layout="responsive"
             objectFit='cover'
+            priority
           />
       </section>
       <section>

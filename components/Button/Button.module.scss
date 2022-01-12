@@ -17,24 +17,24 @@
 .sand {
   background-color: $color-sand;
   &:hover {
-    background-color: darken($color-sand, 10%);
+    background-color: darken($color-sand, 5%);
   }
 }
 .red {
   background-color: $color-red;
   &:hover {
-    background-color: darken($color-red, 10%);
+    background-color: darken($color-red, 5%);
   }
 }
 .coal {
   background-color: $color-coal;
   &:hover {
-    background-color: darken($color-coal, 10%);
+    background-color: darken($color-coal, 5%);
   }
 }
 .green {
   background-color: $color-green;
   &:hover {
-    background-color: darken($color-green, 10%);
+    background-color: darken($color-green, 5%);
   }
 }

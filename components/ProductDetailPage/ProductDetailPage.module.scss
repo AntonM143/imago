@@ -3,24 +3,53 @@
 .productDetailContainer {
   @include display-flex(row);
   justify-content: space-between;
-  max-width: 1200px;
+  padding: 2rem 1rem;
+  width: 100%;
 }
 
+.productInfo {
+  display: flex;
+  flex-direction: row;
+}
 .galleryContainer {
   @include display-flex(row);
-  flex:1;
-  padding: 0 1rem;
-  background-color: red;
+  flex:2;
+  margin: 0 1rem;
 }
-  .productImg {
-    width: 100%;
-    height: auto;
+.productDescription {
+  margin: 1rem 0;
+  h3 {
+    margin: 0.2rem 0;
   }
-
-  .productInfoContainer {
-    flex: 1;
+}
+.productImg {
+  width: 100%;
+  height: auto;
+}
+.productInfoContainer {
+  flex: 1;
+}
+.productTitle {
+  @media (max-width: $breakpoint-md) {
+    border-top: 2px solid lighten($color-coal, 70%);
+      padding: 0.5rem 0;
+      margin: 1rem 0;
   }
-
+}
+.productPrice {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.inStock {
+  @include inStock($color-green);
+}
+.outStock {
+  @include inStock($color-red);
+}
+.btnContainer {
+  margin: 1rem 0;
+}
 
 @media (max-width: $breakpoint-md) {
   .productDetailContainer {

@@ -45,7 +45,6 @@ function SearchBar({ placeholder, data }) {
 				placeholder={placeholder}
 				value={wordEntered}
 				onChange={handleFilter}
-				on
 			/>
 		</div>
 		<div className={styles.searchIcon}>
