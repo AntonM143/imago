@@ -1,14 +1,18 @@
 import '../styles/globals.scss';
 import Layout from '../components/Layout/Layout';
 import { UIContextProvider } from '../store/ui-context';
+import { CartContextProvider } from '../store/cart-context';
+
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UIContextProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </UIContextProvider>
+    <CartContextProvider>
+      <UIContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UIContextProvider>
+    </CartContextProvider>
     )
 }
 

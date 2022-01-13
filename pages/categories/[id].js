@@ -123,9 +123,6 @@ export async function getStaticPaths() {
 	// const result = await productsCollection.find().toArray();
 
 	client.close();
-	// result.map((category) => {
-	// 	console.log(category);
-	// })
 	return{
 
 		fallback: false,
