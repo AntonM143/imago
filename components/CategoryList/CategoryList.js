@@ -1,12 +1,16 @@
 import classes from './CategoryList.module.scss'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
+import { useContext } from 'react'
+import UIContext from 'store/ui-context'
 
 const CategoryList = (props) => {
+  const { toggleMenu } = useContext(UIContext);
   const router = useRouter();
 
   const go = () => {
     router.push(`/categories/${props.query}`)
+    toggleMenu();
   }
   return (
     <li onClick={go} className={classes.CategoryList}>

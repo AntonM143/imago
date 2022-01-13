@@ -1,14 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { MongoClient, ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
+import { connectToDatabase } from '@/utils/mongodb';
 
  export default async function handler(req, res) {
-   const client = await MongoClient.connect(process.env.MONGODB_URI);
-   const db = client.db();
-   const productCollection = db.collection('products'); //Connect to collection.
 
-   const result = await productCollection.findOne({ "_id": ObjectId(req.query.id) });
-//    const resultAll = await productCollection.find().toArray();
-	console.log(result, "result från api");
-   client.close(); //close connection
+   const { db } = await connectToDatabase();
+	const result = await db.collection('products').findOne({ "_id": ObjectId(req.query.id) });
+
    res.status(200).json(result);
 }

@@ -1,6 +1,6 @@
-import { MongoClient } from 'mongodb';
 import React from 'react';
 import ProductDetailPage from '../../components/ProductDetailPage/ProductDetailPage';
+import { connectToDatabase } from '@/utils/mongodb';
 
 let product_data = {
 	title: "PRODUKTTITEL",
@@ -15,7 +15,6 @@ let product_data = {
 }
 const Product = ({data}) => {
 
-
 	return (
 		<>
 			<ProductDetailPage
@@ -27,21 +26,15 @@ const Product = ({data}) => {
 				price={data.price}
 				sizes={data.sizes}
 			/>
-			<button >GET</button>
 		</>
 	)
 }
 
 export async function getStaticProps(context) {
-	// Call an external API endpoint to get posts.
-	// You can use any data fetching library
 	let path = context.params.id
 
 	const res = await fetch(`http://localhost:3000/api/product/${path}`);
 	const data = await res.json();
-	console.log(data, "i frontend");
-	// By returning { props: { posts } }, the Blog component
-	// will receive `posts` as a prop at build time
 	return {
 	  props: {
 		data,
@@ -50,28 +43,17 @@ export async function getStaticProps(context) {
   }
 
 export async function getStaticPaths() {
-	// const res = await fetch(`/api/category/${path}`);
-	// const data = await res.json();
-	const client = await MongoClient.connect(process.env.MONGODB_URI);
+	const { db } = await connectToDatabase();
+	const result = await db
+		.collection('products')
+		.find( {}, { _id: 1 })
+		.toArray();
 
-	const db = client.db();
-	const productsCollection = db.collection('products'); //Connect to collection.
-	const result = await productsCollection.find( {}, {_id: 1}).toArray();
-	// const result = await productsCollection.find().toArray();
-
-	client.close();
-
-	return{
-
+	return {
 		fallback: false,
-
 		paths: result.map((product)=> ({
-
-
 			params: { id: product._id.toString()},
-
 		})),
-
-		};
+	};
 }
 export default Product

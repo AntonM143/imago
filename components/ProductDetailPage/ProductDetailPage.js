@@ -6,13 +6,29 @@ import styles from './ProductDetailPage.module.scss';
 import { FiShoppingBag } from 'react-icons/fi';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import CartContext from 'store/cart-context';
+import { cartQuantity } from 'handlers/cart';
 
 const ProductDetailPage = (props) => {
+  const cartCtx = useContext(CartContext)
+  const [selectedSize, setSelectedSize] = useState(null)
   const { screenWidth } = useContext(UIContext)
 
-  const onAddToCart = (size) => {
-    console.log('Product added!');
+  const selectedSizeHandler = (size) => {
+    console.log(size);
+    setSelectedSize(size);
+  }
+
+  const onAddToCart = () => {
+    
+    cartCtx.addProductToCart({
+      id: selectedSize.id,
+      title: props.title,
+      price: selectedSize.price,
+      size: selectedSize.size,
+      quantity: 1
+    })
   }
   const productInStock = props.stock > 0;
   return (
@@ -37,10 +53,10 @@ const ProductDetailPage = (props) => {
             <h3>{props.title}</h3>
           </div>
           <div className={styles.productPrice}>
-            <h1>{props.price} SEK</h1>
+            { !selectedSize ? <h1>fr. {props.sizes[0].price} SEK</h1> : <h1>{selectedSize.price} SEK</h1> }
           </div>
         </section>
-        <ProductSizePicker sizes={props.sizes} />
+        <ProductSizePicker onSelectedSize={selectedSizeHandler} sizes={props.sizes} />
         <div className={styles.productInStock}>
         { productInStock ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }
           </div>
@@ -51,7 +67,7 @@ const ProductDetailPage = (props) => {
           </p>
         </div>
         <div>
-          <Button color="sand">
+          <Button onClick={ onAddToCart } color="sand">
             Lägg till i kundvagn
             <FiShoppingBag />
           </Button>
