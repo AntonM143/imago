@@ -52,7 +52,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
 	// const res = await fetch(`/api/category/${path}`);
 	// const data = await res.json();
-	const client = await MongoClient.connect(process.env.URI);
+	const client = await MongoClient.connect(process.env.MONGODB_URI);
 
 	const db = client.db();
 	const productsCollection = db.collection('products'); //Connect to collection.

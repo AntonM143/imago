@@ -2,7 +2,7 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
  export default async function handler(req, res) {
-   const client = await MongoClient.connect(process.env.URI);
+   const client = await MongoClient.connect(process.env.MONGODB_URI);
    const db = client.db();
    const categoryCollection = db.collection('category'); //Connect to collection.
 
