@@ -3,7 +3,6 @@ import React from "react";
 import styles from './CartItem.module.css'
 
 export default function CartItem(props) {
-	console.log(props, "props");
   	return (
 		<div className={styles.container}>
 			<div className={styles.containerImage}>

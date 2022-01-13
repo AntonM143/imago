@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 export default function Product() {
 
 	const handleClick = (e) => {
-		console.log(e, "e");
 		e.preventDefault()
 		router.push({
 			pathname: `/${router.query.products}/${e.target.id}`,
@@ -16,7 +15,6 @@ export default function Product() {
 	}
 
 	const router = useRouter()
-	console.log(router, "router");
 
 	let unique =  -1
 	let props = [
@@ -70,10 +68,8 @@ export default function Product() {
 		},
 	]
 	let html = []
-	console.log(router.query.products, "query");
 	props.forEach((item) => {
 		if(router.query.products == item.category) {
-			console.log(item.category);
 			html.push(
 				<div
 					className={styles.box}

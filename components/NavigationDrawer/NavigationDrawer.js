@@ -10,7 +10,7 @@ const NavigationDrawer = (props) => {
 
 	useEffect(() => {
 		async function get() {
-			const response = await fetch('api/allCategories')
+			const response = await fetch('http://localhost:3000/api/allCategories')
 			const data = await response.json()
 			setData(data)
 		}
@@ -18,7 +18,6 @@ const NavigationDrawer = (props) => {
 	}, [])
 
 	if(data !== null) {
-		console.log("i if");
 		return (
 			<div className={ !menuIsOpen ? classes.navigationDrawer : `${classes.active} ${classes.navigationDrawer}`}>
 			<main>

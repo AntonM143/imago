@@ -8,7 +8,6 @@ import { useRouter } from 'next/router'
 export default function index() {
 
 	const handleClick = (e) => {
-		console.log(e);
 		e.preventDefault()
 		router.push({
 			pathname: '/product',
@@ -17,7 +16,6 @@ export default function index() {
 	}
 
 	const router = useRouter()
-	console.log(router, "router");
 
 	let unique =  -1
 	let props = [
@@ -71,7 +69,6 @@ export default function index() {
 		},
 	]
 	let html = []
-	console.log(router.query.name);
 	props.forEach((item) => {
 
 		html.push(

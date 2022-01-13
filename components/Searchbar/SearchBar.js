@@ -11,7 +11,7 @@ function SearchBar({ placeholder }) {
 
   useEffect(() => {
 		async function get() {
-			const response = await fetch('api/allProducts')
+			const response = await fetch('http://localhost:3000/api/allProducts')
 			const data = await response.json()
 			setData(data)
 		}

@@ -8,7 +8,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 
    const result = await productCollection.findOne({ "_id": ObjectId(req.query.id) });
 //    const resultAll = await productCollection.find().toArray();
-
+	console.log(result, "result från api");
    client.close(); //close connection
    res.status(200).json(result);
 }

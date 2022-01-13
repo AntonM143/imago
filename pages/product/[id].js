@@ -14,7 +14,6 @@ let product_data = {
 	type: ''
 }
 const Product = ({data}) => {
-	console.log(data, 123123123);
 
 
 	return (
@@ -26,6 +25,7 @@ const Product = ({data}) => {
 				images={data.images}
 				stock={data.stock}
 				price={data.price}
+				sizes={data.sizes}
 			/>
 			<button >GET</button>
 		</>
@@ -39,6 +39,7 @@ export async function getStaticProps(context) {
 
 	const res = await fetch(`http://localhost:3000/api/product/${path}`);
 	const data = await res.json();
+	console.log(data, "i frontend");
 	// By returning { props: { posts } }, the Blog component
 	// will receive `posts` as a prop at build time
 	return {
