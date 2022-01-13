@@ -1,16 +1,36 @@
 import React, { useEffect, useState, useContext} from 'react'
 import CartContext from 'store/cart-context';
-/*
-import { formatPrice } from '../../components/handlers/currency';
- */
-import testImg from '../../testbild.jpg'
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from '@/components/checkoutform';
+const stripePromise = loadStripe("pk_test_51Jc3YTL7WEpn3e73oCXBMlM0vm3JlZAxzafuAXjnk2lmp8EvXL7ee8k6iucQlBeLE2CyUzdokmc0vvKOGWXZgAy600AxOre3VM");
+
 import styles from './Cart.module.css'
-import CartItem from './CartItem';
 
 // line_items: [ { price: {{PRICE_ID}}, adjustable_quantity: { enabled: true, minimum: 1, maximum: 10 } quantity: 1, }, ],
 
 const Cart = () => {
+	const [clientSecret, setClientSecret] = useState("");
 	const { cart } = useContext(CartContext);
+
+  useEffect(() => {
+    // Create PaymentIntent as soon as the page loads
+    fetch("api/create-payment-intent", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+    })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, []);
+
+  const appearance = {
+    theme: 'stripe',
+  };
+  const options = {
+    clientSecret,
+    appearance,
+  };
 
 	return (
 		<div className={styles.container}>
@@ -44,6 +64,11 @@ const Cart = () => {
 						Check out
 					</button>
 				</div>
+				{clientSecret && (
+        <Elements options={options} stripe={stripePromise}>
+          <CheckoutForm />
+        </Elements>
+      )}
 			</div>
 		</div>
 	  );
