@@ -6,6 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
+console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 export default function PreviewPage() {
   React.useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -20,7 +21,7 @@ export default function PreviewPage() {
   }, []);
 
   return (
-    <form action="/api/checkout_sessions" method="POST">
+    <form action="/api/checkout" method="POST">
       <section>
         <button type="submit" role="link">
           Checkout
