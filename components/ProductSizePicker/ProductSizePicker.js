@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import styles from './ProductSizePicker.module.scss';
 import { IoIosArrowDown } from 'react-icons/io';
-import { CSSTransition } from 'react-transition-group';
+import { RiCloseCircleFill,  RiCheckboxCircleLine } from 'react-icons/ri';
 
-const ProductSizePicker = ({ sizes, onSelectedSize }) => {
+const ProductSizePicker = ({ variants, onSelectedSize }) => {
 const [isOpen, setIsOpen] = useState(false);
 const [selectedSize, setSelectedSize] = useState()
 const flip = isOpen ? styles.flip : '';
+
 
 const sizeHandler = (size) => {
   setSelectedSize(size.size)
@@ -21,8 +22,8 @@ const sizeHandler = (size) => {
       </div>
         <div className={styles.dropdownContainer}>
           {isOpen &&
-            sizes.map((size, i) => (
-              <div onClick={() => sizeHandler({size: size.size, price: size.price, id: size.id})} key={i}><p>{size.size} cm</p></div>
+            variants.map((variant, i) => (
+              <div onClick={() => sizeHandler({size: variant.size, price: variant.price, id: variant.id})} key={i}><p>{variant.size} cm </p>{ variant.stock > 0 ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }</div>
             ))}
         </div>
     </div>

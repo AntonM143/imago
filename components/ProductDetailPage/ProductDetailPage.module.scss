@@ -1,12 +1,16 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .productDetailContainer {
+  position: relative;
   @include display-flex(row);
   justify-content: space-between;
   padding: 2rem 1rem;
   width: 100%;
 }
-
+.backBtn {
+  position: absolute;
+  z-index: 2
+}
 .productInfo {
   display: flex;
   flex-direction: row;

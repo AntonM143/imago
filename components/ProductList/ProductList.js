@@ -9,7 +9,7 @@ const ProductList = (props) => {
           key={product._id}
           id={product._id}
           title={product.title}
-          price={product.price}
+          price={product.variants[0].price}
           img={product.images}
         />
       ))}

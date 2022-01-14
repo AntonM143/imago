@@ -3,8 +3,9 @@ import styles from './Button.module.scss';
 
 const Button = (props) => {
   const defaultColor = props.color ? props.color : 'sand';
+
   return (
-    <div className={`${styles.appBtn} ${styles[defaultColor]}`} onClick={props.onClick}>
+    <div className={`${styles.appBtn} ${styles[defaultColor]} ${props.rounded ? styles.rounded : ''}`} onClick={props.onClick}>
       {props.children}
     </div>
   )
