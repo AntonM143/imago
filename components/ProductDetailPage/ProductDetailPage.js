@@ -1,16 +1,17 @@
-import Image from 'next/image';
-import ProductSizePicker from '../ProductSizePicker/ProductSizePicker';
+import { useContext, useState } from 'react';
 import UIContext from '../../store/ui-context';
+import CartContext from 'store/cart-context';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import ProductSizePicker from '../ProductSizePicker/ProductSizePicker';
 import Button from '../Button/Button';
 import styles from './ProductDetailPage.module.scss';
 import { FiShoppingBag } from 'react-icons/fi';
-import { RiCloseCircleFill } from 'react-icons/ri';
-import { RiCheckboxCircleLine } from 'react-icons/ri';
-import { useContext, useState } from 'react';
-import CartContext from 'store/cart-context';
-import { cartQuantity } from 'handlers/cart';
+import { RiCloseCircleFill,  RiCheckboxCircleLine } from 'react-icons/ri';
+import { BiLeftArrow } from 'react-icons/bi'
 
 const ProductDetailPage = (props) => {
+  const router = useRouter()
   const cartCtx = useContext(CartContext)
   const [selectedSize, setSelectedSize] = useState(null)
   const { screenWidth } = useContext(UIContext)
@@ -30,9 +31,12 @@ const ProductDetailPage = (props) => {
       quantity: 1
     })
   }
-  const productInStock = props.stock > 0;
+  const productInStock = props.variants[0].stock > 0;
   return (
     <div className={styles.productDetailContainer}>
+      <div className={styles.backBtn}>
+        <Button onClick={() => router.back()} rounded={true} color="white"><BiLeftArrow/></Button>
+      </div>
       {/* ----------- ProductGallery ------------- */}
       <div className={styles.galleryContainer}>
         <div className={styles.productImg}>
@@ -53,10 +57,10 @@ const ProductDetailPage = (props) => {
             <h3>{props.title}</h3>
           </div>
           <div className={styles.productPrice}>
-            { !selectedSize ? <h1>fr. {props.sizes[0].price} SEK</h1> : <h1>{selectedSize.price} SEK</h1> }
+            { !selectedSize ? <h1>fr. {props.variants[0].price} SEK</h1> : <h1>{selectedSize.price} SEK</h1> }
           </div>
         </section>
-        <ProductSizePicker onSelectedSize={selectedSizeHandler} sizes={props.sizes} />
+        <ProductSizePicker onSelectedSize={selectedSizeHandler} variants={props.variants} />
         <div className={styles.productInStock}>
         { productInStock ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }
           </div>

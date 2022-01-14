@@ -34,6 +34,8 @@
   background-color: $color-white;
   
   div {
+    display: flex;
+    justify-content: space-between;
     padding: 0.5rem 0.5rem;
     &:hover {
       background-color: darken($color-white, 5%);
@@ -43,6 +45,13 @@
 
 .flip {
   animation: flipY 200ms forwards;
+}
+
+.inStock {
+  @include inStock($color-green);
+}
+.outStock {
+  @include inStock($color-red);
 }
 
 @keyframes flipY {

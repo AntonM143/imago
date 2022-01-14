@@ -4,6 +4,7 @@ import { UIContextProvider } from '../store/ui-context';
 import { CartContextProvider } from '../store/cart-context';
 
 
+
 function MyApp({ Component, pageProps }) {
   return (
     <CartContextProvider>
