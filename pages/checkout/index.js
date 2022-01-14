@@ -1,59 +1,56 @@
-import React from 'react';
-import { loadStripe } from '@stripe/stripe-js';
+import Button from '@/components/Button/Button';
+import Cart from '@/components/Cart/Cart';
+import Payment from '@/components/Payment/Payment';
+import Shipping from '@/components/Shipping/Shipping';
+import React, { useState, useContext} from 'react'
+import CartContext from 'store/cart-context';
 
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-);
-console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-export default function PreviewPage() {
-  React.useEffect(() => {
-    // Check to see if this is a redirect back from Checkout
-    const query = new URLSearchParams(window.location.search);
-    if (query.get('success')) {
-      console.log('Order placed! You will receive an email confirmation.');
-    }
 
-    if (query.get('canceled')) {
-      console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
-    }
-  }, []);
+const Checkout = () => {
+	const { cart } = useContext(CartContext);
+	/* 3 state */
+	const [preview, setPreview] = useState(true)
+	const [shipping, setShipping] = useState(false)
+	const [payment, setPayment] = useState(false)
 
-  return (
-    <form action="/api/checkout" method="POST">
-      <section>
-        <button type="submit" role="link">
-          Checkout
-        </button>
-      </section>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 112px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-    </form>
-  );
+	const handleClick = () => {
+		if(preview) {
+			setShipping(!shipping)
+			setPreview(!preview)
+		}else if(shipping) {
+			setShipping(!shipping)
+			setPayment(!payment)
+		}else if(payment) {
+			setPayment(!payment)
+			setShipping(!shipping)
+		}
+
+	}
+
+
+	return (
+		<div>
+			{preview ? <Cart/> : ""}
+			{shipping ? <Shipping/> : ""}
+			{payment ? <Payment/> : ""}
+			{preview == false && shipping == false ? "" :
+				<Button
+					color = {"coal"}
+					onClick = {handleClick}
+				>
+					Nästa steg
+				</Button>
+			}
+			{/* {shipping == false && payment == false ? "" :
+				<Button
+					color = {"coal"}
+					onClick = {handleClick}
+				>
+					Tillbaka
+				</Button>
+			} */}
+		</div>
+	  );
 }
+
+export default Checkout;

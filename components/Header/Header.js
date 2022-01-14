@@ -52,7 +52,7 @@ const Header = () => {
           <nav className={classes.headerSecondaryNav}>
 			<SearchBar placeholder={"sök..."}/>
 			<div>
-				<Link href={'/cart'}>
+				<Link href={'/checkout'}>
 					<a>
 						<FiShoppingBag/>
 					</a>

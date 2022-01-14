@@ -14,7 +14,7 @@ export default function CartItem(props) {
 					/>
 				</div>
 				<div className={styles.name}>
-					{props.name}
+					{props.title}, {props.size}
 				</div>
 			</div>
 			<div className={styles.rightSide}>

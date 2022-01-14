@@ -22,12 +22,13 @@ const ProductDetailPage = (props) => {
   }
 
   const onAddToCart = () => {
-    
+
     cartCtx.addProductToCart({
       id: selectedSize.id,
       title: props.title,
       price: selectedSize.price,
       size: selectedSize.size,
+	  img: props.images,
       quantity: 1
     })
   }
