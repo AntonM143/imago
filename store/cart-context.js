@@ -5,6 +5,7 @@ const CartContext = createContext({
   cart: [ { items:[], quantity:0 } ],
   addProductToCart: () => { },
   removeProduct: () => { },
+  clearCart: () => { },
 });
 
 export const CartContextProvider = ({children}) => {
@@ -36,11 +37,17 @@ export const CartContextProvider = ({children}) => {
     console.log(productItem, 'TILLAGD PRODUCT')
   }
 
+  const clearCart = () => {
+	setCart([])
+	console.log("clear cart😊😊😊");
+  }
+
   return (
     <CartContext.Provider value={{
       cart,
       addProductToCart,
-      removeProduct
+      removeProduct,
+	  clearCart,
       }}>
       {children}
     </CartContext.Provider>
