@@ -10,3 +10,8 @@ export const getLocalstorage = () => {
 	let storedData = data ? JSON.parse(data) : null
 	return storedData;
 }
+
+export const clearLocalStorage = () => {
+	localStorage.clear()
+	console.log("localstorage cleared 😊😊");
+}
