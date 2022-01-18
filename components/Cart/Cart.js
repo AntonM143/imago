@@ -5,17 +5,18 @@ import CartItem from '../CartItem/CartItem';
 
 
 const Cart = () => {
-	const { cart } = useContext(CartContext);
+	const { cart, addProductToCart } = useContext(CartContext);
 
 
 	return (
 		<div className={styles.container}>
 			<header className={styles.header}>
-				<h1>VARUKORG</h1>
+					<h1>VARUKORG</h1>
 			</header>
 				{cart.items.map((item, index) => (
 					<div key={index}>
-						<CartItem /* cart state true  */
+						<CartItem
+							onUpdatedCart={addProductToCart}
 							id={item.id}
 							img={item.img[0]}
 							title={item.title}

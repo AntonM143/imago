@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './SearchBar.module.css'
+import styles from './SearchBar.module.scss'
 import { FaSearch, FaWindowClose } from "react-icons/fa";
 import { useRouter } from 'next/router'
 
@@ -51,10 +51,11 @@ function SearchBar({ placeholder }) {
 
   return (
 	<div className={styles.search}>
-		<div className={styles.searchInputs}>
+		<div >
 			<input
 				type="text"
 				placeholder={placeholder}
+				className={styles.searchInputs}
 				value={wordEntered}
 				onChange={handleFilter}
 			/>
@@ -68,7 +69,7 @@ function SearchBar({ placeholder }) {
 		</div>
 		{filteredData.length != 0 && (
 			<div className={styles.searchResult}>
-			{filteredData.slice(0, 15).map((value, key) => {
+			{filteredData.slice(0, 5).map((value, key) => {
 				return (
 					<p
 						className={styles.result}

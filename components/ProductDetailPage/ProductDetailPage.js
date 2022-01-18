@@ -29,7 +29,8 @@ const ProductDetailPage = (props) => {
       price: selectedSize.price,
       size: selectedSize.size,
 	  img: props.images,
-      quantity: 1
+      quantity: 1,
+	  type: "add"
     })
   }
   const productInStock = props.variants[0].stock > 0;
