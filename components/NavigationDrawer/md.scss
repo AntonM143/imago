@@ -1,22 +1,25 @@
-@use '../../styles/tokens.module.scss' as *;
-
 .navigationDrawer {
-  @include display-flex(row);
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  max-height: 5000px;
+  @include display-flex(column);
+  position: fixed;
+  top: 0;
+  bottom:0;
+  width: 80%;
+  height: 100%;
+  justify-content: flex-start;
   background-color: $color-white;
-  transform: translateY(-100%);
+  transform: translateX(-100%);
   transition: transform 300ms linear, opacity 300ms linear;
   opacity: 0;
-  z-index: 5;
+  z-index: 9;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  header {
+    margin-top: 77px;
+  }
   main {
     @include display-flex(column);
     width: 100%;
     .categoryListContainer {
-      @include display-flex(row);
+      @include display-flex(column);
     }
   }
 }
@@ -30,9 +33,5 @@
 
 .active {
   opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: $breakpoint-md) {
-  @import './md.scss';
+  transform: translateZ(0);
 }

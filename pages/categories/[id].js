@@ -4,7 +4,6 @@ import ProductListPage from '../../components/ProductListPage/ProductListPage';
 // import classes from './Categories.module.scss'
 
 const Category = ({ data }) => {
-
 	// const {category} = router.query;
 	return (
 		<>
@@ -40,18 +39,13 @@ export async function getStaticPaths() {
 	// const result = await productsCollection.find().toArray();
 
 	client.close();
-	return{
 
+	return {
 		fallback: false,
-
 		paths: result.map((category)=> ({
-
-
 			params: { id: category.toString().toLowerCase()},
-
 		})),
-
-		};
+	};
 }
 
 export default Category;
