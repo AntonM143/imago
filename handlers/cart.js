@@ -9,20 +9,20 @@ function calcTotalAmount(cart) {
 	return totalAmount;
   }
 
-  function updateProductQuantity(cart, index) {
-		let products = [...cart.items]
-		let product = products[index]
-		let type = 'add';
-		if(type === 'add') {
-			product.quantity++
-		} else if (type === 'subtract') {
-			product.quantity--
-		}
-		if (product.quantity <= 0) {
-			products.splice(index, 1);
-		}
-		return products
+  function updateProductQuantity(cart, index, type) {
+	  console.log(cart,index, type, "😊😊😊");
+	let products = [...cart.items]
+	let product = products[index]
+	if(type === 'add') {
+	  product.quantity++
+	} else if (type === 'subtract') {
+	  product.quantity--
 	}
+	if (product.quantity <= 0) {
+	  products.splice(index, 1);
+	}
+	return products
+  }
 
   function cartQuantity(cart) {
 	let quantity = [0];

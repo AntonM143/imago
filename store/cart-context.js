@@ -19,9 +19,8 @@ export const CartContextProvider = ({children}) => {
 
   const addProductToCart = (item) => {
     const existingIndex = cart.items.findIndex(product => item.id === product.id);
-    console.log(existingIndex)
     if(existingIndex !== -1) {
-      const products = updateProductQuantity(cart, existingIndex);
+      const products = updateProductQuantity(cart, existingIndex, item.type);
       const totalAmount = calcTotalAmount(products);
       setCart({ ...cart, items: products, totalAmount });
       setLocalstorage({ ...cart, items: products, totalAmount });

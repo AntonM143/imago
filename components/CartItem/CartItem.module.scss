@@ -1,0 +1,91 @@
+@use '../../styles/tokens.module.scss' as *;
+
+
+.container {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	width: 80vw;
+
+	@media (max-width: $breakpoint-sm) {
+		width: 90vw;
+		height: 10vh;
+		font-size: small;
+	  }
+}
+
+.leftSide {
+	flex: 2;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+
+	@media (max-width: $breakpoint-sm) {
+		flex: 1;
+	  }
+}
+.test {
+	display: flex;
+	flex: 0.5;
+}
+
+.leftSideImage {
+	padding: 0.2em;
+	width: 40%;
+	height: auto;
+
+	@media (max-width: $breakpoint-sm) {
+		width: 70%;
+	  }
+}
+
+.leftSideName {
+	display: flex;
+	flex: 0.5;
+}
+
+.rightSide {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+
+.rightSideBox {
+	display: flex;
+	flex: 0.8;
+	align-items: center;
+
+
+}
+
+.rightSideAdd {
+	display: flex;
+	flex: 0.5;
+}
+
+.rightSideQuantity {
+	display: flex;
+	flex: 1;
+
+	@media (max-width: $breakpoint-sm) {
+		flex: 0.5;
+	  }
+
+	span {
+		@media (max-width: $breakpoint-sm) {
+			display: none;
+		  }
+	}
+}
+
+.rightSideSubstract {
+	display: flex;
+	flex: 0.5;
+}
+
+.rightSidePrice {
+	display: flex;
+	flex: 1;
+}

@@ -1,46 +1,55 @@
+import { updateProductQuantity } from "handlers/cart";
 import Image from "next/image";
 import React from "react";
-import styles from './CartItem.module.css'
+import styles from './CartItem.module.scss'
+import { GrSubtractCircle, GrAddCircle } from 'react-icons/gr';
 
 export default function CartItem(props) {
+	// console.log(props);
+
   	return (
 		<div className={styles.container}>
-			<div className={styles.containerImage}>
-				<div className={styles.boxImage}>
-					<Image
-						src={props.img}
-						height={150}
-						width={150}
-					/>
+			<div className={styles.leftSide}>
+				<div className={styles.test}>
+					<div className={styles.leftSideImage}>
+						<Image
+							src={props.img}
+							alt={props.title}
+							width={2}
+							height={2}
+							layout="responsive"
+							objectFit='cover'
+							priority
+						/>
+					</div>
 				</div>
-				<div className={styles.name}>
+				<div className={styles.leftSideName}>
 					{props.title}, {props.size}
 				</div>
 			</div>
 			<div className={styles.rightSide}>
 				<div className={styles.rightSideBox}>
-					<button
-						className={styles.button}
-						onClick={() => {
-							props.onUpdatedCart({ id:props.id, type: 'subtract' })
-						}}
-					>
-						<p className={styles.increaseDecrease}>-</p>
-					</button>
-					<div className={styles.quantity}>
-						antal: {props.quantity}
+					<div className={styles.rightSideAdd}>
+						<GrSubtractCircle
+							onClick={() => {
+								props.onUpdatedCart( { id:props.id, type: 'subtract' } )
+							}}
+						/>
 					</div>
-					<button
-						className={styles.button}
-						onClick={() => {props.onUpdatedCart({ id:props.id, type: 'add' })
-						}}
-					>
-						<p className={styles.increaseDecrease}>+</p>
-					</button>
-				</div>
-				<div className={styles.containerPrice}>
-					<div>
-						{props.price} kr
+					<div className={styles.rightSideQuantity}>
+						<span>antal:</span>{props.quantity}
+					</div>
+					<div className={styles.rightSideSubstract}>
+						<GrAddCircle
+							onClick={() => {
+								props.onUpdatedCart( { id:props.id, type: 'add' })
+							}}
+						/>
+					</div>
+					<div className={styles.rightSidePrice}>
+						<div>
+							{props.price} kr
+						</div>
 					</div>
 				</div>
 			</div>

@@ -79,23 +79,23 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form id="payment-form" className={classes.form} onSubmit={handleSubmit}>
        <input
-        id="email"
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter email address"
+			id="email"
+			type="text"
+			value={email}
+			onChange={(e) => setEmail(e.target.value)}
+			placeholder="Enter email address"
       />
 
       <PaymentElement id="payment-element" />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
+      <button disabled={isLoading || !stripe || !elements} className={classes.submit}id="submit">
         <span className={classes.buttonText}>
-          {isLoading ? <div className={classes.spinner} id="spinner"></div> : "Pay now"}
+          {isLoading ? <div className={classes.spinner} id="spinner"></div> : "Betala"}
         </span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      {message && <div className={classes.paymentMessage}>{message}</div>}
     </form>
   );
 }
