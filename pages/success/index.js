@@ -26,8 +26,8 @@ const success = () => {
 						body: JSON.stringify(cartInLocal),
 					})
 					res = await res.json()
-					// clearLocalStorage()
-					// clearCart()
+					clearLocalStorage()
+					clearCart()
 				}
 			}
 			fetchMyAPI()
