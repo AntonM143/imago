@@ -5,7 +5,6 @@ import styles from './CartItem.module.scss'
 import { GrSubtractCircle, GrAddCircle } from 'react-icons/gr';
 
 export default function CartItem(props) {
-	// console.log(props);
 
   	return (
 		<div className={styles.container}>

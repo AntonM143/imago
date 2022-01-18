@@ -10,7 +10,6 @@ function calcTotalAmount(cart) {
   }
 
   function updateProductQuantity(cart, index, type) {
-	  console.log(cart,index, type, "😊😊😊");
 	let products = [...cart.items]
 	let product = products[index]
 	if(type === 'add') {

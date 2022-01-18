@@ -24,7 +24,10 @@ const Header = () => {
 
 	  }
 
-	  let quantityInCart = cartQuantity(cart.items)
+	// let quantityInCart = cart.items ? cartQuantity(cart.items) : 0
+	let quantityInCart =cartQuantity(cart.items)
+
+
   return (
     <>
       <header className={classes.headerContainer}>
@@ -60,7 +63,7 @@ const Header = () => {
 						<FiShoppingBag/>
 					</a>
 				</Link>
-				{cart.items.length >= 1 ? <div className={classes.cartCount}>{quantityInCart}</div> : ""}
+				{<div className={classes.cartCount}>{quantityInCart}</div>}
 			</div>
           </nav>
         </section>

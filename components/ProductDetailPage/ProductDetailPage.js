@@ -17,7 +17,6 @@ const ProductDetailPage = (props) => {
   const { screenWidth } = useContext(UIContext)
 
   const selectedSizeHandler = (size) => {
-    console.log(size);
     setSelectedSize(size);
   }
 

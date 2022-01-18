@@ -33,12 +33,10 @@ export const CartContextProvider = ({children}) => {
   }
 
   const removeProduct = (productItem) => {
-    console.log(productItem, 'TILLAGD PRODUCT')
   }
 
   const clearCart = () => {
-	setCart([])
-	console.log("clear cart😊😊😊");
+	setCart({ items:[], totalAmount: 0})
   }
 
   return (

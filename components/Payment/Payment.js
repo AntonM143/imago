@@ -6,20 +6,17 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 
 const stripePromise = loadStripe("pk_test_51Jc3YTL7WEpn3e73oCXBMlM0vm3JlZAxzafuAXjnk2lmp8EvXL7ee8k6iucQlBeLE2CyUzdokmc0vvKOGWXZgAy600AxOre3VM");
 
-// line_items: [ { price: {{PRICE_ID}}, adjustable_quantity: { enabled: true, minimum: 1, maximum: 10 } quantity: 1, }, ],
-
 const Payment = (props) => {
 	const { cart } = useContext(CartContext);
 	const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    console.log(props.storedUser)
     let newData = Object.assign(cart, props.storedUser)
     // Create PaymentIntent as soon as the page loads
     fetch("api/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(cart),
+      body: JSON.stringify(newData),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
@@ -35,6 +32,7 @@ const Payment = (props) => {
   };
 	return (
 		<div>
+			{/* Summering av produkter samt frakt och totalpris*/}
 			{clientSecret && (
 				<Elements options={options} stripe={stripePromise}>
 					<CheckoutForm/>

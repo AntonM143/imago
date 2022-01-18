@@ -19,7 +19,7 @@ const CheckoutAddressForm = (props) => {
       <FormProvider {...methods}>
         <form autoComplete='off' className={styles.checkoutForm} onSubmit={methods.handleSubmit(onSubmit)}>
           {items.map((item, index) => (
-            <CheckoutInput 
+            <CheckoutInput
               key={index}
               name={item.name}
               title={item.title}
@@ -27,11 +27,11 @@ const CheckoutAddressForm = (props) => {
           ))}
           <div className={styles.shippingItem}>
             <label htmlFor="">Hämta på vårat lager</label>
-            <input {...methods.register('radio', { required: true })} type="radio" value="pickup"/>
+            <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
           </div>
           <div className={styles.shippingItem}>
             <label htmlFor="">PostNord</label>
-            <input {...methods.register('radio', { required: true })}  type="radio" value="delivery"/>
+            <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
           </div>
          <input type="submit" />
         </form>

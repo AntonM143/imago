@@ -21,7 +21,6 @@ import CartContext from 'store/cart-context';
 
 		const result = await ordersCollection.findOne({ "query": query.query });
 		client.close(); //close connection
-		console.log(result, "result i get");
 		if(result == null) {
 			//TODO ändra status kod
 			res.status(300).json({message: 0})

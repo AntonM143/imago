@@ -8,13 +8,14 @@ const calculateOrderAmount = (totalAmount) => {
 };
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { items,totalAmount, delivery } = req.body;
-    console.log(delivery)
-
+    const { items,totalAmount, radio } = req.body;
+	let shipping = JSON.parse(radio)
+	let shippingPrice = Number(shipping.price)
+	let totalPrice = totalAmount + shippingPrice
 
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: totalAmount*100,
+      amount: totalPrice *100,
       currency: "sek",
       automatic_payment_methods: {
         enabled: true,

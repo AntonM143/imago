@@ -20,7 +20,6 @@ function SearchBar({ placeholder }) {
 
   const handleFilter = (event) => {
 
-	  console.log(event.target.value);
     const searchWord = event.target.value;
     setWordEntered(searchWord);
 
@@ -40,7 +39,6 @@ function SearchBar({ placeholder }) {
   };
 
   const handleClick = (id) => {
-	  console.log(id);
 	router.push({
 		pathname: `/product/${id}`,
 	})
