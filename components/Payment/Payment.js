@@ -8,11 +8,13 @@ const stripePromise = loadStripe("pk_test_51Jc3YTL7WEpn3e73oCXBMlM0vm3JlZAxzafuA
 
 // line_items: [ { price: {{PRICE_ID}}, adjustable_quantity: { enabled: true, minimum: 1, maximum: 10 } quantity: 1, }, ],
 
-const Payment = () => {
+const Payment = (props) => {
 	const { cart } = useContext(CartContext);
 	const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
+    console.log(props.storedUser)
+    let newData = Object.assign(cart, props.storedUser)
     // Create PaymentIntent as soon as the page loads
     fetch("api/create-payment-intent", {
       method: "POST",

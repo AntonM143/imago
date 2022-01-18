@@ -1,0 +1,32 @@
+@use '../../styles/tokens.module.scss' as *;
+
+.container {
+  flex: 1 calc(50% - 1.5rem);
+  margin: 0.5rem 0.1rem;
+  padding: 0 0.5rem;
+}
+
+.formInputfield {
+  position: relative;
+  background-color: transparent;
+  z-index: 100;
+}
+
+.checkoutInputContainer {
+  @include display-flex(column);
+  padding-top: 24px;
+  padding-bottom: 4px;
+  border-bottom: thin solid $color-coal;
+}
+
+.inputLabel {
+  transition: all 300ms ease-out;
+  position: absolute;
+}
+.inputFocus {
+  transform: translateY(-1.5rem) scale(1);
+}
+.requiredText {
+  font-family:'Helvetica Neue', sans-serif;
+  color: $color-red
+}

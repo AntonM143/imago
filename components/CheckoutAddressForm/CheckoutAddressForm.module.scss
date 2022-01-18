@@ -1,0 +1,20 @@
+@use '../../styles/tokens.module.scss' as *;
+.formContainer {
+  @include display-flex(column);
+  justify-content: center;
+  align-items: center;
+  header {
+    padding: 1rem 0;
+  }
+}
+
+.checkoutForm {
+  @include display-flex(row);
+  flex-wrap: wrap;
+  max-width: 45rem;
+  margin: 0 auto;
+}
+
+.shippingItem {
+  flex: 1 calc(50% - 1.5rem);
+}
