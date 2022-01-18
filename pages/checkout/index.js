@@ -7,7 +7,7 @@ import { setLocalstorage, getLocalstorage } from '@/utils/localstorage';
 
 
 const Checkout = () => {
-	
+
 	const [formData, setFormData] = useState(null);
 	useEffect(() => {
     const storedUser = getLocalstorage('checkoutSession');
@@ -24,7 +24,6 @@ const Checkout = () => {
 		setPreview(false)
 		setShipping(false)
 		setPayment(true)
-		console.log(data.radio)
 	}
 
 	const onCart = () => {
@@ -42,7 +41,7 @@ const Checkout = () => {
 		setShipping(false)
 		setPayment(true)
 	}
-	
+
 	return (
 		<div>
 			<button onClick={onCart}>Varor</button>

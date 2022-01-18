@@ -9,7 +9,6 @@ import classes from './CheckoutForm.module.scss'
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-  const [email, setEmail] = useState('');
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -79,14 +78,6 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" className={classes.form} onSubmit={handleSubmit}>
-       <input
-			id="email"
-			type="text"
-			value={email}
-			onChange={(e) => setEmail(e.target.value)}
-			placeholder="Enter email address"
-      />
-
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} className={classes.submit}id="submit">
         <span className={classes.buttonText}>
