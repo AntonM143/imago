@@ -1,17 +1,24 @@
+@use '../../styles/tokens.module.scss' as *;
+
 .search {
 	display: flex;
 	position: relative;
-	width: 20vw;
+
 }
 
 .searchInputs {
 	display: flex;
 	margin-right: 1em;
 	align-items: center;
+	text-align: center;
 	border: 0;
 	border-radius: 2px;
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
+
+	@media (max-width: $breakpoint-md) {
+		width: 5em;
+	}
 
 }
 
@@ -26,14 +33,22 @@
 	position: absolute;
 	z-index: 1000;
 	width: 70%;
-	background-color: grey;
+	background-color: #f2f3f7;
 	margin-top: 1.5em;
 	font-size: 1.5rem;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	overflow: hidden;
 	overflow-y: auto;
+	text-align: center;
+
+	@media (max-width: $breakpoint-md) {
+		width: 100%;
+		background-color: #f2f3f7;
+		font-size: 0.8em;
+	}
 }
 
 .result {
 	margin: 1em 0;
 }
+

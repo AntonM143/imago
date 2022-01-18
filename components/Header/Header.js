@@ -8,9 +8,12 @@ import Link from 'next/link';
 import SearchBar from '../Searchbar/SearchBar';
 import testImg from '../../testbild.jpg'
 import { useRouter } from 'next/router';
+import CartContext from 'store/cart-context';
+import { cartQuantity } from 'handlers/cart';
 
 const Header = () => {
 	const { toggleMenu } = useContext(UIContext);
+	const { cart } = useContext(CartContext);
 	const router = useRouter();
 
 	const handleClick = () => {
@@ -21,7 +24,7 @@ const Header = () => {
 
 	  }
 
-
+	  let quantityInCart = cartQuantity(cart.items)
   return (
     <>
       <header className={classes.headerContainer}>
@@ -51,12 +54,13 @@ const Header = () => {
           </nav>
           <nav className={classes.headerSecondaryNav}>
 			<SearchBar placeholder={"sök..."}/>
-			<div>
+			<div className={classes.cart}>
 				<Link href={'/checkout'}>
-					<a>
+					<a >
 						<FiShoppingBag/>
 					</a>
 				</Link>
+				{cart.items.length >= 1 ? <div className={classes.cartCount}>{quantityInCart}</div> : ""}
 			</div>
           </nav>
         </section>
