@@ -1,0 +1,18 @@
+@use '../styles/tokens.module.scss' as *;
+
+.indexContainer {
+  @include display-flex(row);
+  width: 100%;
+}
+
+.hero {
+  flex:1 50%
+}
+.shopPush {
+  @include display-flex(column);
+  background-color: $color-white;
+  padding: 0 10rem;
+  justify-content: center;
+  align-items: center;
+  flex:1 50%
+}

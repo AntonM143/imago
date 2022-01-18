@@ -42,6 +42,7 @@
 }
 .productPrice {
   display: flex;
+  color: lighten($color-coal, 50%);
   justify-content: center;
   margin: 2rem 0;
 }

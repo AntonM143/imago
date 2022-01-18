@@ -10,9 +10,11 @@ const Cart = () => {
 
 	return (
 		<div className={styles.container}>
-			<header className={styles.header}>Kundvagn</header>
-				{cart.items.map((item) => (
-					<div key={item.name}>
+			<header className={styles.header}>
+				<h1>VARUKORG</h1>
+			</header>
+				{cart.items.map((item, index) => (
+					<div key={index}>
 						<CartItem /* cart state true  */
 							id={item.id}
 							img={item.img[0]}

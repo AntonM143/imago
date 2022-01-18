@@ -8,6 +8,7 @@ export default function CartItem(props) {
 			<div className={styles.containerImage}>
 				<div className={styles.boxImage}>
 					<Image
+						alt={props.title}
 						src={props.img}
 						height={150}
 						width={150}

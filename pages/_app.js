@@ -2,6 +2,8 @@ import '../styles/globals.scss';
 import Layout from '../components/Layout/Layout';
 import { UIContextProvider } from '../store/ui-context';
 import { CartContextProvider } from '../store/cart-context';
+import '../styles/transitions.css'
+
 
 
 

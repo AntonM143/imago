@@ -8,7 +8,9 @@ const calculateOrderAmount = (totalAmount) => {
 };
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { items,totalAmount } = req.body;
+    const { items,totalAmount, delivery } = req.body;
+    console.log(delivery)
+
 
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
