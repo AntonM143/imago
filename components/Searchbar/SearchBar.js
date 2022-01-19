@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './SearchBar.module.scss'
+import styles from './SearchBar.module.css'
 import { FaSearch, FaWindowClose } from "react-icons/fa";
 import { useRouter } from 'next/router'
 
