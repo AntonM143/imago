@@ -2,7 +2,6 @@ import ProductCard from "../ProductCard/ProductCard";
 import styles from './ProductList.module.scss';
 
 const ProductList = (props) => {
-	console.log(props, "sadsadas");
   return (
     <div className={styles.container}>
       {props.data.map((product) => (

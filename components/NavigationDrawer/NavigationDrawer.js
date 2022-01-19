@@ -3,6 +3,7 @@ import styles from './NavigationDrawer.module.scss';
 import UIContext from '../../store/ui-context';
 import {MdClose} from 'react-icons/md';
 import CategoryList from '../CategoryList/CategoryList';
+import { url_path } from 'config';
 
 const NavigationDrawer = (props) => {
 	const [data, setData] = useState(null)
@@ -10,7 +11,7 @@ const NavigationDrawer = (props) => {
 
 	useEffect(() => {
 		async function get() {
-			const response = await fetch('http://localhost:3000/api/allCategories')
+			const response = await fetch(`${url_path}/api/allCategories`)
 			const data = await response.json()
 			setData(data)
 		}

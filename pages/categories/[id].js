@@ -1,3 +1,4 @@
+import { url_path } from 'config';
 import { MongoClient } from 'mongodb';
 import { useRouter } from 'next/router'
 import ProductListPage from '../../components/ProductListPage/ProductListPage';
@@ -17,7 +18,7 @@ export async function getStaticProps(context) {
 	// You can use any data fetching library
 	let path = context.params.id
 
-	const res = await fetch(`http://localhost:3000/api/category/${path}`);
+	const res = await fetch(`${url_path}/api/category/${path}`);
 	const data = await res.json();
 	// By returning { props: { posts } }, the Blog component
 	// will receive `posts` as a prop at build time

@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { MongoClient, ObjectId } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
  export default async function handler(req, res) {
    const client = await MongoClient.connect(process.env.MONGODB_URI);

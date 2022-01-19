@@ -2,9 +2,11 @@ import React from 'react';
 import ProductDetailPage from '../../components/ProductDetailPage/ProductDetailPage';
 import { connectToDatabase } from '@/utils/mongodb';
 import { useRouter } from 'next/router';
+import { url_path } from '../../config/index';
+import { ObjectId } from 'mongodb';
 
 const Product = ({ data }) => {
-
+	console.log(url_path)
 const router = useRouter()
 	return (
 		<>
@@ -22,14 +24,20 @@ const router = useRouter()
 export async function getStaticProps(context) {
 	let path = context.params.id
 
-	const res = await fetch(`http://localhost:3000/api/product/${path}`);
-	const data = await res.json();
+	const { db } = await connectToDatabase();
+	const data = await db.collection('products').findOne({ "_id": ObjectId(path) });
 	return {
 	  props: {
-		data,
+			data: {
+				_id: data._id.toString(),
+				title: data.title,
+				description: data.description,
+				images: data.images,
+				variants: data.variants,
+			},
 	  },
 	}
-  }
+}
 
 export async function getStaticPaths() {
 	const { db } = await connectToDatabase();

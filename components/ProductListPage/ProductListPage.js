@@ -1,6 +1,7 @@
 import ProductList from "../ProductList/ProductList"
 import styles from './ProductListPage.module.scss';
 const ProductListPage = (props) => {
+  console.log(props.data);
   return (
     <main className={styles.container}>
       <header>

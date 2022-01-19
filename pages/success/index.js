@@ -2,6 +2,7 @@ import { getLocalstorage, clearLocalStorage  } from '@/utils/localstorage';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react'
 import CartContext from 'store/cart-context';
+import { url_path } from 'config';
 
 const Success = () => {
 	const { clearCart } = useContext(CartContext);
@@ -26,11 +27,11 @@ const Success = () => {
 			let wholeCart = Object.assign(cartInLocal, orderDetails)
 			async function fetchMyAPI() {
 				/* check if payment_intent exists already */
-				let res = await fetch(`api/success/${payment_intent}`)
+				let res = await fetch(`${url_path}/api/success/${payment_intent}`)
 				res = await res.json()
 				/* add to DB */
 				if(res.query !== payment_intent) {
-					let res = await fetch(`api/success/${payment_intent}`, {
+					let res = await fetch(`${url_path}/api/success/${payment_intent}`, {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
 						body: JSON.stringify(wholeCart),

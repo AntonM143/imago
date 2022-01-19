@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from './SearchBar.module.scss'
 import { FaSearch, FaWindowClose } from "react-icons/fa";
 import { useRouter } from 'next/router'
+import { url_path } from 'config';
 
 function SearchBar({ placeholder }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -11,7 +12,7 @@ function SearchBar({ placeholder }) {
 
   useEffect(() => {
 		async function get() {
-			const response = await fetch('http://localhost:3000/api/allProducts')
+			const response = await fetch(`${url_path}/api/allProducts`)
 			const data = await response.json()
 			setData(data)
 		}
