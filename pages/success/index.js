@@ -1,13 +1,11 @@
 import { getLocalstorage, clearLocalStorage  } from '@/utils/localstorage';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react'
-import { useState } from 'react/cjs/react.development';
 import CartContext from 'store/cart-context';
 
 const Success = () => {
-	const { cart, clearCart } = useContext(CartContext);
+	const { clearCart } = useContext(CartContext);
 	const router = useRouter()
-	const [isLoading, SetIsLoading] = useState(false)
 
 	useEffect(() => {
 		SetIsLoading(true)
@@ -49,7 +47,7 @@ const Success = () => {
 
   return (
     <div>
-     {  !isLoading ? <h1>DET GICK BRA</h1> : "laddar..."}
+     <h1>DET GICK BRA</h1>
     </div>
   )
 }
