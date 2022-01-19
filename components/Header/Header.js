@@ -61,6 +61,11 @@ const Header = () => {
 					Hem
 				</li>
               <li onClick={toggleMenu}>Produkter</li>
+              <li onClick={() => {
+				  router.push({
+					  pathname: '/allProducts'
+				  })
+			  }}>Alla produkter</li>
             </ul>
           </nav>
           <nav className={classes.headerSecondaryNav}>

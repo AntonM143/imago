@@ -1,0 +1,18 @@
+@use '../../styles/tokens.module.scss' as *;
+.container {
+	display: flex;
+  width: calc(30% - 1rem);
+  height: auto;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+  @media (max-width: $breakpoint-lg) {
+      width: calc(50% - 1rem);
+      margin: 1rem 0.5rem;
+  }
+}
+
+
+
+.productTitle {
+  margin-top: 0.8rem;
+}
