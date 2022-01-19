@@ -9,7 +9,6 @@ const Success = () => {
 	const router = useRouter()
 
 	useEffect(() => {
-		SetIsLoading(true)
 		// Create PaymentIntent as soon as the page loads
 		const params = new URLSearchParams(window.location.search)
 		let payment_intent = params.get('payment_intent')
@@ -23,7 +22,6 @@ const Success = () => {
 		}
 
 		if (localStorage.getItem("cart") !== null) {
-			SetIsLoading(false)
 			let wholeCart = Object.assign(cartInLocal, orderDetails)
 			async function fetchMyAPI() {
 				/* check if payment_intent exists already */
