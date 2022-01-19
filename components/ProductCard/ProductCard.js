@@ -20,6 +20,8 @@ const ProductCard = ({ id, title, price, img }) => {
             height={368}
             layout="responsive"
             objectFit='cover'
+            placeholder="blur"
+            blurDataURL={img[0]}
             priority
           />
       </section>

@@ -1,44 +1,52 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import Image from 'next/image';
 import UIContext from '../../store/ui-context';
 import classes from './Header.module.scss';
-import { FaSearch } from "react-icons/fa";
 import { FiShoppingBag } from 'react-icons/fi';
 import Link from 'next/link';
 import SearchBar from '../Searchbar/SearchBar';
-import testImg from '../../testbild.jpg'
 import { useRouter } from 'next/router';
 import CartContext from 'store/cart-context';
 import { cartQuantity } from 'handlers/cart';
+import Lottie from 'lottie-react';
+import animationData from './lottie.json';
+import { useLottie } from "lottie-react";
+
 
 const Header = () => {
-	const { toggleMenu } = useContext(UIContext);
+
+  const options = {
+    animationData: animationData,
+    loop: false,
+    autoplay: false,
+  };
+  const { View, playSegments, setDirection, stop } = useLottie(options)
+  const lottieRef = useRef();
+	const { toggleMenu, menuIsOpen } = useContext(UIContext);
 	const { cart } = useContext(CartContext);
 	const router = useRouter();
-
 	const handleClick = () => {
 	  router.push({
 		  pathname: `/`,
 	  })
-
-
-	  }
-
-	// let quantityInCart = cart.items ? cartQuantity(cart.items) : 0
-	let quantityInCart =cartQuantity(cart.items)
-
+	}
+  const mobileNavClick = () => {
+    toggleMenu();
+    if (!menuIsOpen) return playSegments([0,60], true)
+    if (menuIsOpen) {
+      playSegments([60,0], true)
+    }
+  }
+	let quantityInCart = cartQuantity(cart.items)
 
   return (
     <>
       <header className={classes.headerContainer}>
         <section className={classes.headerBar}>
           <nav className={classes.headerMainNav}>
-            <button onClick={toggleMenu} className={classes.headerMenuBtn}>
-              <svg viewBox="0 0 100 80" width="24" height="24">
-                <rect width="100" height="5"></rect>
-                <rect y="15" width="100" height="5"></rect>
-                <rect y="30" width="100" height="5"></rect>
-              </svg>
+            <button onClick={mobileNavClick} className={classes.headerMenuBtn}>
+              {View}
+              {/* <Lottie loop={false} autoplay={false} lottieRef={lottieRef} animationData={animationData}/> */}
             </button>
             <div className={classes.logo}>
               <Image

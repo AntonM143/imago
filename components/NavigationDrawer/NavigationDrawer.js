@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import classes from './NavigationDrawer.module.scss';
+import styles from './NavigationDrawer.module.scss';
 import UIContext from '../../store/ui-context';
 import {MdClose} from 'react-icons/md';
 import CategoryList from '../CategoryList/CategoryList';
@@ -19,9 +19,10 @@ const NavigationDrawer = (props) => {
 
 	if(data !== null) {
 		return (
-			<div className={ !menuIsOpen ? classes.navigationDrawer : `${classes.active} ${classes.navigationDrawer}`}>
+			<div className={ !menuIsOpen ? styles.navigationDrawer : `${styles.active} ${styles.navigationDrawer}`}>
 			<main>
-				<header className={classes.navigationHeader}>
+				
+				<header className={styles.navigationHeader}>
 				<div onClick={toggleMenu}>
 					<MdClose />
 				</div>
@@ -29,14 +30,13 @@ const NavigationDrawer = (props) => {
 					<h1>Kategorier</h1>
 				</div>
 				</header>
-				<section>
-				<ul style={{display: 'flex'}}>
-					{data.map(category => (
-						<CategoryList key={category._id} title={category.title} query={category.query} img={category.img} />
-					))}
 
-				</ul>
-				</section>
+					<ul className={styles.categoryListContainer}>
+						{data.map(category => (
+							<CategoryList key={category._id} title={category.title} query={category.query} img={category.img} />
+						))}
+					</ul>
+
 			</main>
 			</div>
 		)
