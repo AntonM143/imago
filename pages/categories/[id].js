@@ -1,11 +1,12 @@
-import { url_path } from 'config';
+
 import { MongoClient } from 'mongodb';
-import { useRouter } from 'next/router'
+import { connectToDatabase } from '@/utils/mongodb';
 import ProductListPage from '../../components/ProductListPage/ProductListPage';
-// import classes from './Categories.module.scss'
+import { ObjectId } from 'mongodb';
+
 
 const Category = ({ data }) => {
-	// const {category} = router.query;
+
 	return (
 		<>
 			<ProductListPage data={data} />
@@ -14,19 +15,24 @@ const Category = ({ data }) => {
 }
 
 export async function getStaticProps(context) {
-	// Call an external API endpoint to get posts.
-	// You can use any data fetching library
 	let path = context.params.id
+	const { db } = await connectToDatabase();
+	const response = await db.collection('products').find({ "categoryId": path.toLowerCase()}).toArray();
 
-	const res = await fetch(`${url_path}/api/category/${path}`);
-	const data = await res.json();
-	// By returning { props: { posts } }, the Blog component
-	// will receive `posts` as a prop at build time
-	return {
-	  props: {
-		data,
-	  },
-	}
+	const data = response.map((product) => {
+		return {
+			_id: ObjectId(product._id).toString(),
+			title: product.title,
+			description: product.description,
+			images: product.images,
+			variants: product.variants,
+		}
+	})
+		return {
+			props: {
+				data
+			},
+		}
   }
 
 export async function getStaticPaths() {
