@@ -6,7 +6,6 @@ import { MongoClient, ObjectId } from 'mongodb';
    const db = client.db();
    const productCollection = db.collection('products'); //Connect to collection.
 
-//    const result = await productCollection.findOne({ "categoryId": ObjectId(req.query.id) });
    const result = await productCollection.find().toArray();
 
 
