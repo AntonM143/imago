@@ -1,13 +1,25 @@
-@use '../../styles/tokens.module.scss' as *; 
+@use '../../styles/tokens.module.scss' as *;
 .ProductCardContainer {
-  width: calc(33% - 1rem);
+  width: calc(33% - 0.1rem);
   height: auto;
-  margin: 1rem 0.5rem;
+  margin: 1rem 0rem 1rem 0.5rem;
+
   cursor: pointer;
+ 	 &:nth-child(3n +1) {
+
+		margin-left: 0;
+	}
   @media (max-width: $breakpoint-lg) {
       width: calc(50% - 1rem);
       margin: 1rem 0.5rem;
+
+	&:nth-child(2n + 1) {
+		margin-left: 0.5rem;
+		background-color: blue;
+	}
   }
+
+
 }
 
 

@@ -3,4 +3,5 @@
 .container {
   @include display-flex(row);
   flex-wrap: wrap;
+  width: 100%;
 }
