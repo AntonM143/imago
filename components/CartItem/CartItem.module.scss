@@ -68,6 +68,10 @@
 	display: flex;
 	flex: 1;
 
+	span {
+		padding: 5px;
+	}
+
 	@media (max-width: $breakpoint-sm) {
 		flex: 0.5;
 	  }
@@ -87,4 +91,8 @@
 .rightSidePrice {
 	display: flex;
 	flex: 1;
+}
+
+.rightSideRemove {
+	display: flex;
 }
