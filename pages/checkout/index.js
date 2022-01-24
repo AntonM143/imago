@@ -43,7 +43,7 @@ const Checkout = () => {
 	}
 
 	return (
-		<div>
+		<div style={{width: '100%'}}>
 			<button onClick={onCart}>Varor</button>
 			<button onClick={onShipping}>Leverans</button>
 					<div>

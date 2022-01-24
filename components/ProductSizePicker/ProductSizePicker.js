@@ -3,7 +3,7 @@ import styles from './ProductSizePicker.module.scss';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiCloseCircleFill,  RiCheckboxCircleLine } from 'react-icons/ri';
 
-const ProductSizePicker = ({ variants, onSelectedSize }) => {
+const ProductSizePicker = ({ variants, onSelectedSize, onSelectSize }) => {
 const [isOpen, setIsOpen] = useState(false);
 const [selectedSize, setSelectedSize] = useState()
 const flip = isOpen ? styles.flip : '';
@@ -14,6 +14,7 @@ const sizeHandler = (size) => {
   onSelectedSize(size)
   setIsOpen(false)
 }
+
   return (
     <div className={styles.sizePickerContainer}>
       <div onClick={() => setIsOpen(!isOpen)} className={styles.currentSize}>

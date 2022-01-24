@@ -12,11 +12,8 @@ export default function Home() {
           height={1000}
           width={1000}
           objectFit="cover"
+          objectPosition='center'
         />
-      </div>
-      <div className={styles.shopPush}>
-        Handla massa fina posters
-        <Button> Shop  </Button>
       </div>
     </div>
   )

@@ -1,10 +1,11 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .CategoryList {
+  position: relative;
   margin: 0.1rem;
+  padding: 0.5rem 0;
   flex: 1;
   cursor: pointer;
-  padding: 0 1rem;
 
   .categoryImage {
     img {
@@ -16,5 +17,13 @@
       transform: scale(1.05);
     }
   }
-
+  &:after {
+    content:"";
+    position:absolute;
+    background-color: $color-grey;
+    height: 1px;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
 }

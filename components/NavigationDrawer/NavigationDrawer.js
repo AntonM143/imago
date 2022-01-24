@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
+import Link from 'next/link';
 import styles from './NavigationDrawer.module.scss';
 import UIContext from '../../store/ui-context';
-import {MdClose} from 'react-icons/md';
 import CategoryList from '../CategoryList/CategoryList';
 import { url_path } from 'config';
+import { GrClose } from 'react-icons/gr';
+import { IoIosArrowDown } from 'react-icons/io'
 
 const NavigationDrawer = (props) => {
 	const [data, setData] = useState(null)
 	const { menuIsOpen, toggleMenu } = useContext(UIContext);
+	const [toggleCategorys, setToggleCategorys] = useState(false);
 
 	useEffect(() => {
 		async function get() {
@@ -18,28 +21,35 @@ const NavigationDrawer = (props) => {
 		get()
 	}, [])
 
+
 	if(data !== null) {
 		return (
-			<div className={ !menuIsOpen ? styles.navigationDrawer : `${styles.active} ${styles.navigationDrawer}`}>
-			<main>
-				
-				<header className={styles.navigationHeader}>
-				<div onClick={toggleMenu}>
-					<MdClose />
+				<div className={ !menuIsOpen ? styles.navigationDrawer : `${styles.active} ${styles.navigationDrawer}`}>
+				<main>
+					<header>
+						<GrClose onClick={props.onClose} />
+					</header>
+					<nav className={styles.navigationMenu}>
+						<div>
+							<Link  href={'/allProducts'}>
+							<a>
+								<p onClick={() => props.onClose()}>Alla Produkter</p>
+							</a>
+							</Link>
+						</div>
+						<div onClick={() => setToggleCategorys(!toggleCategorys)}>
+							<p>Kategorier
+							</p>
+							<span ><IoIosArrowDown /></span>
+						</div>
+					</nav>
+						<div aria-expanded={!toggleCategorys} className={styles.categoryListContainer}>
+							{data.map(category => (
+								<CategoryList onClose={props.onClose} key={category._id} title={category.title} query={category.query} img={category.img} />
+							))}
+						</div>
+				</main>
 				</div>
-				<div>
-					<h1>Kategorier</h1>
-				</div>
-				</header>
-
-					<ul className={styles.categoryListContainer}>
-						{data.map(category => (
-							<CategoryList key={category._id} title={category.title} query={category.query} img={category.img} />
-						))}
-					</ul>
-
-			</main>
-			</div>
 		)
 	}else {
 		return (<p></p>)
