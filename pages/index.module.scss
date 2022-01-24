@@ -2,11 +2,11 @@
 
 .indexContainer {
   @include display-flex(row);
-  width: 100%;
+  max-width: none;
 }
 
 .hero {
-  flex:1 50%
+  width: 100%
 }
 .shopPush {
   @include display-flex(column);

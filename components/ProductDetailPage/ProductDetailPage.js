@@ -14,14 +14,19 @@ const ProductDetailPage = (props) => {
   const router = useRouter()
   const cartCtx = useContext(CartContext)
   const [selectedSize, setSelectedSize] = useState(null)
+  const [message, setMessage] = useState(null);
   const { screenWidth } = useContext(UIContext)
 
   const selectedSizeHandler = (size) => {
     setSelectedSize(size);
   }
-
+  
   const onAddToCart = () => {
-
+    if (!selectedSize) return;
+    setMessage('Tillagd i varukorgen!')
+    setTimeout(() => {
+      setMessage(null)
+    },1000);
     cartCtx.addProductToCart({
       id: selectedSize.id,
       title: props.title,
@@ -73,8 +78,7 @@ const ProductDetailPage = (props) => {
         </div>
         <div>
           <Button onClick={ onAddToCart } color="sand">
-            Lägg till i kundvagn
-            <FiShoppingBag />
+            {message ? <> {message} <RiCheckboxCircleLine /></> : <> Lägg till i varukorgen <FiShoppingBag /></>}
           </Button>
         </div>
       </div>

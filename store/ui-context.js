@@ -15,9 +15,16 @@ export const UIContextProvider = ({children}) => {
     function onResizeHandler() {
       setScreenWidth(window.screen.width);
     };
+    console.log('heyaa')
+/*     if (menuIsOpen) {
+      document.body.style.setProperty('overflow', 'hidden');
+    } else {
+      document.body.style.removeProperty('overflow', 'hidden');
+    } */
     window.addEventListener('resize', onResizeHandler);
     return () => {window.removeEventListener('resize',onResizeHandler)}
-  },[])
+  },[menuIsOpen])
+
 
   return (
     <UIContext.Provider value={{

@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
 import UIContext from '../../store/ui-context';
 import classes from './Header.module.scss';
@@ -8,20 +8,35 @@ import SearchBar from '../Searchbar/SearchBar';
 import { useRouter } from 'next/router';
 import CartContext from 'store/cart-context';
 import { cartQuantity } from 'handlers/cart';
-import Lottie from 'lottie-react';
 import animationData from './lottie.json';
 import { useLottie } from "lottie-react";
+import NavigationDrawer from '../NavigationDrawer/NavigationDrawer';
+import Imago from '../../public/images/imago.svg';
 
 
-const Header = () => {
+const Header = (props) => {
+  const headerRef = useRef();
+  const [headerHeight, setHeaderHeight] = useState();
+  const [scrollPosition, setScrollPostion] = useState();
 
+  useEffect(() => {
+    const scrollhandler = () => {
+      setScrollPostion(window.scrollY);
+    }
+    window.addEventListener('scroll', scrollhandler);
+    setHeaderHeight(headerRef.current.clientHeight)
+    return () => {
+      window.removeEventListener('scroll', scrollhandler);
+    }
+  }, [])
+  const fixedHeader = scrollPosition > headerHeight + 10;
   const options = {
     animationData: animationData,
     loop: false,
     autoplay: false,
   };
-  const { View, playSegments, setDirection, stop } = useLottie(options)
-  const lottieRef = useRef();
+  const { View, playSegments } = useLottie(options)
+
 	const { toggleMenu, menuIsOpen } = useContext(UIContext);
 	const { cart } = useContext(CartContext);
 	const router = useRouter();
@@ -30,57 +45,49 @@ const Header = () => {
 		  pathname: `/`,
 	  })
 	}
+
   const mobileNavClick = () => {
     toggleMenu();
     if (!menuIsOpen) return playSegments([0,60], true)
-    if (menuIsOpen) {
-      playSegments([60,0], true)
-    }
+    if (menuIsOpen) return playSegments([60,0], true)
   }
+
 	let quantityInCart = cartQuantity(cart.items)
 
   return (
     <>
-      <header className={classes.headerContainer}>
-        <section className={classes.headerBar}>
+      <header ref={headerRef} className={ !fixedHeader ? classes.headerContainer : `${classes.headerContainer} ${classes.fixedHeader}`} >
+        <section className={ classes.headerBar}>
           <nav className={classes.headerMainNav}>
             <button onClick={mobileNavClick} className={classes.headerMenuBtn}>
               {View}
-              {/* <Lottie loop={false} autoplay={false} lottieRef={lottieRef} animationData={animationData}/> */}
             </button>
-            <div className={classes.logo}>
-              <Image
-                src="/images/icnimage-logo.png"
-                alt="logo"
-                width={436}
-                height={105}
-              />
-            </div>
-            <ul>
-              	<li onClick={handleClick}>
-					Hem
-				</li>
-              <li onClick={toggleMenu}>Produkter</li>
-              <li onClick={() => {
-				  router.push({
-					  pathname: '/allProducts'
-				  })
-			  }}>Alla produkter</li>
-            </ul>
           </nav>
+          <div className={classes.brandContainer}>
+            <Link href={'/'}>
+            <a>
+              <div className={classes.logo}>
+                <Imago />
+              </div>
+            </a>
+            </Link>
+          </div>
           <nav className={classes.headerSecondaryNav}>
-			<SearchBar placeholder={"sök..."}/>
-			<div className={classes.cart}>
-				<Link href={'/checkout'}>
-					<a >
-						<FiShoppingBag/>
-					</a>
-				</Link>
-				{<div className={classes.cartCount}>{quantityInCart}</div>}
-			</div>
+          <div >
+			    <SearchBar  placeholder={"sök..."}/>
+          </div>
+            <div className={classes.cart}>
+              <Link href={'/checkout'}>
+                <a>
+                  <FiShoppingBag/>
+                  <div className={classes.cartCount}>{quantityInCart}</div>
+                </a>
+              </Link>
+            </div>
           </nav>
         </section>
       </header>
+      <NavigationDrawer onClose={mobileNavClick} />
     </>
   )
 }

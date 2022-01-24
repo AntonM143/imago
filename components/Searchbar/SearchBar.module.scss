@@ -3,43 +3,43 @@
 .search {
 	display: flex;
 	position: relative;
-
+	border: thin solid lighten($color-grey, 50%);
+	border-radius: 20px;
+	div {
+		display: flex;
+		padding: 0.4rem 1rem;
+	}
 }
 
 .searchInputs {
 	display: flex;
-	margin-right: 1em;
 	align-items: center;
-	text-align: center;
 	border: 0;
 	border-radius: 2px;
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
-
+	&::placeholder {
+		font-weight: 200;
+	}
 	@media (max-width: $breakpoint-md) {
 		width: 5em;
 	}
-
-}
-
-.searchIcon {
-	margin-right: 1em;
 }
 
 .searchResult {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	position: absolute;
 	z-index: 1000;
 	width: 70%;
 	background-color: #f2f3f7;
-	margin-top: 1.5em;
+	margin-top: 1.7em;
 	font-size: 1.5rem;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	overflow: hidden;
 	overflow-y: auto;
 	text-align: center;
+	left: 1rem;
 
 	@media (max-width: $breakpoint-md) {
 		width: 100%;
