@@ -17,6 +17,9 @@ function calcTotalAmount(cart) {
 	} else if (type === 'subtract') {
 	  product.quantity--
 	}
+	else if( type === 'remove') {
+		product.quantity = 0
+	}
 	if (product.quantity <= 0) {
 	  products.splice(index, 1);
 	}
