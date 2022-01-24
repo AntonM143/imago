@@ -4,12 +4,18 @@ import { connectToDatabase } from '@/utils/mongodb';
 import { useRouter } from 'next/router';
 import { url_path } from '../../config/index';
 import { ObjectId } from 'mongodb';
+import Head from 'next/head';
+
 
 const Product = ({ data }) => {
 	console.log(url_path)
 const router = useRouter()
 	return (
 		<>
+		<Head>
+			<title>{data.title}</title>
+			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+		</Head>
 			<ProductDetailPage
 				id={data._id}
 				title={data.title}

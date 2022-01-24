@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect, useState } from 'react'
 import CartContext from 'store/cart-context';
 import { url_path } from 'config';
+import Head from 'next/head';
 
 const Success = () => {
 	const [cart, setCart] = useState(null)
@@ -50,7 +51,11 @@ const Success = () => {
 
   return (
     <div>
-     <h1>DET GICK BRA</h1>
+			<Head>
+				<title>Tack för ditt köp!</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+     	<h1>DET GICK BRA</h1>
     </div>
   )
 }

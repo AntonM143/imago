@@ -3,12 +3,16 @@ import { MongoClient } from 'mongodb';
 import { connectToDatabase } from '@/utils/mongodb';
 import ProductListPage from '../../components/ProductListPage/ProductListPage';
 import { ObjectId } from 'mongodb';
-
+import Head from 'next/head';
 
 const Category = ({ data }) => {
 
 	return (
 		<>
+			<Head>
+				<title>{data[0].categoryId.toUpperCase()}</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
 			<ProductListPage data={data} />
 		</>
 	)
@@ -25,6 +29,7 @@ export async function getStaticProps(context) {
 			title: product.title,
 			description: product.description,
 			images: product.images,
+			categoryId: product.categoryId,
 			variants: product.variants,
 		}
 	})

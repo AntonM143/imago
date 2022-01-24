@@ -4,6 +4,7 @@ import ProductList from '@/components/ProductList/ProductList';
 import { url_path } from 'config';
 import Select from 'react-select';
 import classes from './AllProducts.module.scss';
+import Head from 'next/head';
 
 const AllProducts = () => {
 
@@ -48,6 +49,10 @@ const [options, setOptions] = useState([])
 		const uniqueVariants = Array.from(options.reduce((map, obj) => map.set(obj.label, obj), new Map()).values());
 		return (
 			<>
+				<Head>
+					<title>Alla Produkter</title>
+					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+				</Head>
 				<div className={classes.select}>
 					<Select
 						// isMulti

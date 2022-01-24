@@ -6,6 +6,7 @@ const ProductListPage = (props) => {
     <main className={styles.container}>
       <header>
         <h1>{props.data[0].categoryId}</h1>
+        <p>{props.data[0].description}</p>
       </header>
       {/* TODO SORT */}
       <ProductList data={props.data} />
