@@ -4,6 +4,7 @@ import Payment from '@/components/Payment/Payment';
 import CheckoutAddressForm from '@/components/CheckoutAddressForm/CheckoutAddressForm';
 import React, { useState, useEffect, useContext} from 'react'
 import { setLocalstorage, getLocalstorage } from '@/utils/localstorage';
+import Head from 'next/head';
 
 
 const Checkout = () => {
@@ -43,6 +44,11 @@ const Checkout = () => {
 	}
 
 	return (
+		<>
+		<Head>
+			<title>Checkout</title>
+			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+		</Head>
 		<div style={{width: '100%'}}>
 			<button onClick={onCart}>Varor</button>
 			<button onClick={onShipping}>Leverans</button>
@@ -52,6 +58,7 @@ const Checkout = () => {
 					{ payment && <Payment storedUser={formData} /> }
 					</div>
 		</div>
+	</>
 	  );
 }
 
