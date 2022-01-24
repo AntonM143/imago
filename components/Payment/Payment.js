@@ -3,6 +3,8 @@ import CartContext from 'store/cart-context';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import classes from './Payment.module.scss'
+import Summary from '../Summary';
 
 const stripePromise = loadStripe("pk_test_51Jc3YTL7WEpn3e73oCXBMlM0vm3JlZAxzafuAXjnk2lmp8EvXL7ee8k6iucQlBeLE2CyUzdokmc0vvKOGWXZgAy600AxOre3VM");
 
@@ -31,13 +33,17 @@ const Payment = (props) => {
     appearance,
   };
 	return (
-		<div>
-			{/* Summering av produkter samt frakt och totalpris*/}
-			{clientSecret && (
-				<Elements options={options} stripe={stripePromise}>
-					<CheckoutForm/>
-				</Elements>
-			)}
+		<div className={classes.container}>
+			<Summary cart={cart}/>
+			<div className={classes.stripeContainer}>
+
+				{clientSecret && (
+					<Elements options={options} stripe={stripePromise}>
+						<CheckoutForm/>
+					</Elements>
+				)}
+			</div>
+
 		</div>
 	  );
 }
