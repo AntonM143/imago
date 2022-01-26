@@ -29,11 +29,19 @@
 		.paymentOptions {
 			display: flex;
 			justify-content: flex-end;
-			padding: 1rem 0;
+			padding: 0.5rem 0;
 			width: 100%;
 			svg {
 				width: 100px;
 				height: auto;
+			}
+		}
+		.footnote {
+			@include display-flex(row);
+			justify-content:center;
+			padding-bottom: 0.2rem;
+			p {
+				font-size: small;
 			}
 		}
   }

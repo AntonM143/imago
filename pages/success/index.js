@@ -33,14 +33,13 @@ const Success = () => {
 				res = await res.json()
 				/* add to DB */
 				if(res.query !== payment_intent) {
-					console.log(wholeCart);
+	
 					let res = await fetch(`${url_path}/api/success/${payment_intent}`, {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
 						body: JSON.stringify(wholeCart),
 					})
 					res = await res.json()
-					console.log(res)
 				}
 			}
 			fetchMyAPI()

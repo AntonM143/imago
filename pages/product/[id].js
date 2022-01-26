@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 
 const Product = ({ data }) => {
-	console.log(url_path)
+
 const router = useRouter()
 	return (
 		<>

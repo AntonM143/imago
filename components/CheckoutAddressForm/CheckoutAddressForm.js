@@ -25,15 +25,23 @@ const CheckoutAddressForm = (props) => {
               title={item.title}
             />
           ))}
-          <div className={styles.shippingItem}>
-            <label htmlFor="">Hämta på vårat lager</label>
-            <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
+          <div className={styles.shippingContainer}>
+            <header className={styles.shippingHeader}>
+              <h1>Frakt</h1>
+            </header>
+            <div className={styles.shippingItem}>
+              <label>Hämta på vårat lager</label>
+              <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
+              <p>Kan hämtas efter 24h</p>
+            </div>
+            <div className={styles.shippingItem}>
+              <label>PostNord</label>
+              <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
+              <p>Frakt 1-3 dagar</p>
+            </div>
           </div>
-          <div className={styles.shippingItem}>
-            <label htmlFor="">PostNord</label>
-            <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
-          </div>
-         <input type="submit" />
+         {/* <input type="submit" /> */}
+          <Button onSubmit={methods.handleSubmit(onSubmit)}>Vidare Till Betalning</Button>
         </form>
       </FormProvider>
       </div>

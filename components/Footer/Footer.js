@@ -22,7 +22,10 @@ export default function Footer() {
 				<div className={styles.paymentOptions}>
 					<Stripe />
 				</div>
-
+			<div className={styles.footnote}>
+				<p>Det är en demobutik.</p>
+				<p>Imago info@imago.se. Göteborgsgatan 1 411 13 Göteborg. </p>
+			</div>
 			</div>
 		</div>
 	)

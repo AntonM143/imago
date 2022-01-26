@@ -5,9 +5,9 @@ const Button = (props) => {
   const defaultColor = props.color ? props.color : 'sand';
 
   return (
-    <div className={`${styles.appBtn} ${styles[defaultColor]} ${props.rounded ? styles.rounded : ''}`} onClick={props.onClick}>
+    <button onSubmit={props.onSubmit} className={`${styles.appBtn} ${styles[defaultColor]} ${props.rounded ? styles.rounded : ''}`} onClick={props.onClick}>
       {props.children}
-    </div>
+    </button>
   )
 }
 

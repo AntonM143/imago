@@ -1,5 +1,6 @@
 @use '../../styles/tokens.module.scss' as *;
 .navigationDrawer {
+  overflow-y: scroll;
   @include display-flex(column);
   position: fixed;
   top: 0;

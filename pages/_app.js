@@ -16,7 +16,9 @@ function MyApp({ Component, pageProps }) {
       type="text/javascript"
       strategy="beforeInteractive"
     />
-    {/* <Script
+
+{/*     <Script
+
       id="CookieDeclaration"
       src="https://consent.cookiebot.com/a270ebf9-69ac-474d-ad48-b234ca05e06b/cd.js"
       type="text/javascript"
