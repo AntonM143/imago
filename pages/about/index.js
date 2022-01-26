@@ -48,8 +48,8 @@ const about = () => {
     </li>
 </ol>
 <ul>
-    <li>Vid köp av varor på webbplatsen har du som kund en 30 dagars ångerrätt som gäller från det att du har tagit emot en vara som du har beställt. 
-        
+    <li>Vid köp av varor på webbplatsen har du som kund en 30 dagars ångerrätt som gäller från det att du har tagit emot en vara som du har beställt.
+
         <br />
         <br />
         5.1 <strong>Vid nyttjande av din ångerrätt: </strong>
@@ -57,8 +57,8 @@ const about = () => {
     <li>Du måste meddela att du ångrar dig. Meddelandet ska skickas till oss info@imago.se. I ditt meddelande ska ditt namn, din adress, e-postadress, ordernumret samt vilka varor som returneringen gäller framgå klart och tydligt.</li>
     <li>Du bör omedelbart och senast inom 30 dagar efter ångermeddelandet returnera produkterna till oss.</li>
     <li>Du står för returfrakt, leverans och skick på produkterna vid retur, produkterna bör därför skickas välpaketerade och i ursprunglig förpackning.</li>
-    <li>På återbetalningsbeloppet förbehåller vi oss rätten att dra av en summa motsvarande värdeminskningen jämfört med varans ursprungliga värde vid använd eller skadad produkt. 
-        
+    <li>På återbetalningsbeloppet förbehåller vi oss rätten att dra av en summa motsvarande värdeminskningen jämfört med varans ursprungliga värde vid använd eller skadad produkt.
+
         <br />
         <br />
         5.2 <strong>Ångerrätten gäller inte vid:</strong>
@@ -68,12 +68,12 @@ const about = () => {
     <li>Specialtillverkad produkt, som har skräddarsytts särskilt åt dig eller har en tydlig personlig prägel efter dina önskemål.</li>
     <li>Tjänster som har fullgjorts och där du uttryckligen har samtyckt till att tjänsten påbörjas utan ångerrätt.</li>
     <li>Varor som snabbt kan försämras, exempelvis livsmedel.</li>
-    <li>Lösnummer av tidningar eller tidskrifter.     
+    <li>Lösnummer av tidningar eller tidskrifter.
         <br />
-        <br />För mer om den lagstiftade ångerrätten, se      
+        <br />För mer om den lagstiftade ångerrätten, se
         <a href="http://www.konsumentverket.se/for-foretag/konsumentratt-for-foretagare/om-kunden-angrar-sitt-kop/">
             <strong>här</strong>.
-        </a>  
+        </a>
     </li>
 </ul>
 <ol start="6">
@@ -84,8 +84,8 @@ const about = () => {
 <ul>
     <li>Vi besiktigar alla produkter innan dessa skickas till dig. Skulle produkten ändå vara skadad eller felexpedierad när den anländer åtar vi oss i enlighet med gällande konsumentskyddslagstiftning att kostnadsfritt åtgärda felet.</li>
     <li>Du måste alltid kontakta oss för ett godkännande innan du returnerar en defekt vara.</li>
-    <li>Klagomålet ska skickas omedelbart efter att defekten har upptäckts. 
-        
+    <li>Klagomålet ska skickas omedelbart efter att defekten har upptäckts.
+
         <br />
         <br />
         6.1 <strong>Hur går du tillväga vid reklamation?</strong>
@@ -195,7 +195,7 @@ const about = () => {
 <li>
 <strong>10.9 Så skyddar vi dina personuppgifter</strong><br />
 
-Vi använder oss av industristandarder som SSL/TLS och envägs hash-algoritmer för att lagra, behandla och kommunicera känslig information som exempelvis personuppgifter och lösenord på ett säkert sätt. 
+Vi använder oss av industristandarder som SSL/TLS och envägs hash-algoritmer för att lagra, behandla och kommunicera känslig information som exempelvis personuppgifter och lösenord på ett säkert sätt.
 
 <br />
 
@@ -225,7 +225,7 @@ Vi använder oss av industristandarder som SSL/TLS och envägs hash-algoritmer f
       <h1>Returer</h1>
       <p>
         Hos oss har du alltid 6 månaders öppet köp och gratis retur!
-        Är du inte 100% nöjd med ditt köp kan du returnera varorna till oss. 
+        Är du inte 100% nöjd med ditt köp kan du returnera varorna till oss.
         Har du lagt en beställning i webbshoppen och önskar att göra en retur, skickar du ett mail till oss på returer@imago.se
         Var uppmärksam på att ordrar med leveransalternativet ”hämta på lager” endast kan returneras i våran lagershop.
         Produkten får inte vara använd och prislapparna måste vara kvar på plagget.
