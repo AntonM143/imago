@@ -15,7 +15,7 @@ export const UIContextProvider = ({children}) => {
     function onResizeHandler() {
       setScreenWidth(window.screen.width);
     };
-    console.log('heyaa')
+
 /*     if (menuIsOpen) {
       document.body.style.setProperty('overflow', 'hidden');
     } else {

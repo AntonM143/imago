@@ -37,11 +37,6 @@ const Checkout = () => {
 		setShipping(true)
 		setPayment(false)
 	}
-	const onPayment = () => {
-		setPreview(false)
-		setShipping(false)
-		setPayment(true)
-	}
 
 	return (
 		<>
@@ -49,9 +44,12 @@ const Checkout = () => {
 			<title>Checkout</title>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
+
 		<div style={{width: '100%'}}>
-			<button onClick={onCart}>Varor</button>
-			<button onClick={onShipping}>Leverans</button>
+			<div>
+				<p onClick={onCart}>Varor</p>
+				<p onClick={onShipping}>Leverans</p>
+			</div>
 					<div>
 					{ preview && <Cart /> }
 					{ shipping && <CheckoutAddressForm storedData={formData} onFormData={formDataHandler} /> }

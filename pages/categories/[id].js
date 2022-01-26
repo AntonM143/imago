@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
 	let path = context.params.id
 	const { db } = await connectToDatabase();
 	const response = await db.collection('products').find({ "categoryId": path.toLowerCase()}).toArray();
-
+	const categoryResponse = await db.collection('category').find({ "query": path.toLowerCase()}).toArray();
 	const data = response.map((product) => {
 		return {
 			_id: ObjectId(product._id).toString(),
@@ -31,6 +31,7 @@ export async function getStaticProps(context) {
 			images: product.images,
 			categoryId: product.categoryId,
 			variants: product.variants,
+			categoryDescription: categoryResponse[0].description
 		}
 	})
 		return {

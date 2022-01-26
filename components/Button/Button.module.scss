@@ -1,6 +1,7 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .appBtn {
+  border: none;
   @include display-flex(row);
   justify-content: center;
   align-items: center;

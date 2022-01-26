@@ -6,7 +6,6 @@ const Summary = (props) => {
 	if(!props.cart.address) {
 		return "loading.."
 	}
-	console.log(props);
 	let itemHtml = []
 	let infoHtml = []
 	// console.log(props.cart);
