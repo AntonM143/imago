@@ -4,14 +4,13 @@ import Image from 'next/image'
 
 const CategoryList = (props) => {
   const router = useRouter();
-  
-  const go = () => {
+  const categoryNavigation = () => {
     router.push(`/categories/${props.query}`)
     props.onClose()
   }
 
   return (
-    <div onClick={go} className={styles.CategoryList}>
+    <div onClick={categoryNavigation} className={styles.CategoryList}>
       <div className={styles.categoryImage}>
         <Image
           src={props.img}

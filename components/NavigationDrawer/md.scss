@@ -1,0 +1,61 @@
+@use '../../styles/tokens.module.scss' as *;
+
+.navigationDrawer {
+  overflow-y: auto;
+  @include display-flex(column);
+  position: fixed;
+  top: 0;
+  bottom:0;
+  width: 80%;
+  height: 100%;
+  justify-content: flex-start;
+  background-color: $color-white;
+  transform: translateX(-100%);
+  transition: transform 300ms linear, opacity 300ms linear;
+  opacity: 0;
+  z-index: 1000;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  padding: 0 1rem;
+  main {
+    .searchContainer {
+      display: flex;
+    }
+    @include display-flex(column);
+    width: 100%;
+    header {
+      padding: 1rem 0;
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+}
+.navigationMenu {
+  @include display-flex(column);
+  div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid thin $color-grey;
+    align-items: center;
+    cursor: pointer;
+    margin: 1rem 0;
+    p {
+      margin: 0.2rem 0;
+    }
+  }
+}
+.categoryListContainer[aria-expanded="true"] {
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.categoryListContainer {
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 600ms ease-in;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}

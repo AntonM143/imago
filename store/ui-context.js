@@ -16,11 +16,11 @@ export const UIContextProvider = ({children}) => {
       setScreenWidth(window.screen.width);
     };
 
-/*     if (menuIsOpen) {
+    if (menuIsOpen) {
       document.body.style.setProperty('overflow', 'hidden');
     } else {
       document.body.style.removeProperty('overflow', 'hidden');
-    } */
+    }
     window.addEventListener('resize', onResizeHandler);
     return () => {window.removeEventListener('resize',onResizeHandler)}
   },[menuIsOpen])

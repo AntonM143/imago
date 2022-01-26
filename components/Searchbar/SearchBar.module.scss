@@ -21,9 +21,6 @@
 	&::placeholder {
 		font-weight: 200;
 	}
-	@media (max-width: $breakpoint-md) {
-		width: 5em;
-	}
 }
 
 .searchResult {
@@ -40,12 +37,6 @@
 	overflow-y: auto;
 	text-align: center;
 	left: 1rem;
-
-	@media (max-width: $breakpoint-md) {
-		width: 100%;
-		background-color: #f2f3f7;
-		font-size: 0.8em;
-	}
 }
 
 .result {

@@ -6,10 +6,11 @@ import CategoryList from '../CategoryList/CategoryList';
 import { url_path } from 'config';
 import { GrClose } from 'react-icons/gr';
 import { IoIosArrowDown } from 'react-icons/io'
+import SearchBar from '@/components/Searchbar/SearchBar';
 
 const NavigationDrawer = (props) => {
 	const [data, setData] = useState(null)
-	const { menuIsOpen, toggleMenu } = useContext(UIContext);
+	const { menuIsOpen } = useContext(UIContext);
 	const [toggleCategorys, setToggleCategorys] = useState(false);
 
 	useEffect(() => {
@@ -29,11 +30,14 @@ const NavigationDrawer = (props) => {
 					<header>
 						<GrClose onClick={props.onClose} />
 					</header>
+						<div className={styles.searchContainer}>
+							<SearchBar />
+						</div>
 					<nav className={styles.navigationMenu}>
 						<div>
 							<Link  href={'/allProducts'}>
 							<a>
-								<p onClick={() => props.onClose()}>Alla Produkter</p>
+								<p onClick={props.onClose}>Alla Produkter</p>
 							</a>
 							</Link>
 						</div>
