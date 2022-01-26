@@ -1,0 +1,96 @@
+.headerContainer {
+  position: relative;
+  width: 100%;
+  padding: 0.7rem 0;
+  z-index: 50;
+  background-color: $color-white;
+  min-height: 50px;
+  .headerBar {
+    @include display-flex(row);
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    @media (min-width: $breakpoint-md) {
+      width: calc(100% - 5rem);
+    }
+    .brandContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      div {
+        width: 150px;
+      }
+    }
+    .headerMainNav {
+      flex: 1;
+      @include display-flex(row);
+      align-items: center;
+      .headerMenuBtn {
+        @include display-flex(row);
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        margin: 0 0.8rem;
+        border: none;
+        background: none;
+        z-index: 10000;
+      }
+      ul {
+        display: none;
+        @media (min-width: $breakpoint-md) {
+          @include display-flex(row);
+        }
+        li {
+          cursor: pointer;
+        }
+      }
+    }
+    .headerSecondaryNav {
+      .searchContainer {
+        display: none
+      }
+      @include display-flex(row);
+      flex: 1;
+      justify-content: flex-end;
+      align-items: center;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      position: relative;
+    }
+
+  }
+  .cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.9rem;
+    svg {
+      vertical-align: bottom;
+      font-size: 2rem;
+    }
+  }
+
+  .cartCount {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+    font-size: 1rem;
+	  background-color: black;
+    color: white;
+    padding: 0 5px;
+	  border: 2px solid black;
+	  border-radius: 12px;
+  }
+}
+
+.fixedHeader {
+  position: fixed;
+  animation: slideDown 400ms ease-in-out;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}

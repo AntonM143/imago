@@ -5,12 +5,15 @@ import CheckoutAddressForm from '@/components/CheckoutAddressForm/CheckoutAddres
 import React, { useState, useEffect, useContext} from 'react'
 import { setLocalstorage, getLocalstorage } from '@/utils/localstorage';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
 
 
 const Checkout = () => {
-
+	const router = useRouter();
 	const [formData, setFormData] = useState(null);
 	useEffect(() => {
+
     const storedUser = getLocalstorage('checkoutSession');
     setFormData(storedUser)
   },[]);
@@ -33,6 +36,7 @@ const Checkout = () => {
 		setPayment(false)
 	}
 	const onShipping = () => {
+		router.push('/checkout?delivery', undefined, { shallow: true })
 		setPreview(false)
 		setShipping(true)
 		setPayment(false)
@@ -45,9 +49,9 @@ const Checkout = () => {
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
 
-		<div style={{width: '100%'}}>
+		<div style={{ width: '100%' }}>
 			<div>
-				<p onClick={onCart}>Varor</p>
+				<p onClick={onCart}>Varukorg</p>
 				<p onClick={onShipping}>Leverans</p>
 			</div>
 					<div>
@@ -55,6 +59,7 @@ const Checkout = () => {
 					{ shipping && <CheckoutAddressForm storedData={formData} onFormData={formDataHandler} /> }
 					{ payment && <Payment storedUser={formData} /> }
 					</div>
+					{ preview && <Button onClick={onShipping}>Till Beställning</Button>}
 		</div>
 	</>
 	  );
