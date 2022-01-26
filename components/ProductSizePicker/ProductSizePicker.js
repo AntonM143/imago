@@ -10,9 +10,13 @@ const flip = isOpen ? styles.flip : '';
 
 
 const sizeHandler = (size) => {
-  setSelectedSize(size.size)
-  onSelectedSize(size)
-  setIsOpen(false)
+	if(size.stock < 1) {
+		return
+	}else {
+		setSelectedSize(size.size)
+		onSelectedSize(size)
+		setIsOpen(false)
+	}
 }
 
   return (
@@ -24,7 +28,8 @@ const sizeHandler = (size) => {
         <div className={styles.dropdownContainer}>
           {isOpen &&
             variants.map((variant, i) => (
-              <div onClick={() => sizeHandler({size: variant.size, price: variant.price, id: variant.id})} key={i}><p>{variant.size} cm </p>{ variant.stock > 0 ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }</div>
+              <div
+			  	onClick={() => sizeHandler({size: variant.size, price: variant.price, id: variant.id, stock: variant.stock})} key={i}><p>{variant.size} cm </p>{ variant.stock > 0 ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }</div>
             ))}
         </div>
     </div>

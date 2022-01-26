@@ -2,7 +2,7 @@ import { updateProductQuantity } from "handlers/cart";
 import Image from "next/image";
 import React from "react";
 import styles from './CartItem.module.scss'
-import { GrSubtractCircle, GrAddCircle } from 'react-icons/gr';
+import { GrSubtractCircle, GrAddCircle, GrTrash } from 'react-icons/gr';
 
 export default function CartItem(props) {
 
@@ -36,7 +36,7 @@ export default function CartItem(props) {
 						/>
 					</div>
 					<div className={styles.rightSideQuantity}>
-						<span>antal:</span>{props.quantity}
+						<span>antal: {props.quantity} </span>
 					</div>
 					<div className={styles.rightSideSubstract}>
 						<GrAddCircle
@@ -50,6 +50,13 @@ export default function CartItem(props) {
 							{props.price} kr
 						</div>
 					</div>
+					<div className={styles.rightSideRemove}>
+							<GrTrash
+								onClick={() => {
+									props.onUpdatedCart( { id:props.id, type: 'remove' } )
+								}}
+							/>
+						</div>
 				</div>
 			</div>
 		</div>
