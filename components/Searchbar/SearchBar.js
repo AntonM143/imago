@@ -3,6 +3,7 @@ import styles from './SearchBar.module.scss'
 import { FaSearch, FaWindowClose } from "react-icons/fa";
 import { useRouter } from 'next/router'
 import { url_path } from 'config';
+import Image from "next/image";
 
 function SearchBar({ placeholder }) {
   const [filteredData, setFilteredData] = useState([]);
@@ -70,13 +71,25 @@ function SearchBar({ placeholder }) {
 			<div className={styles.searchResult}>
 			{filteredData.slice(0, 5).map((value, key) => {
 				return (
-					<p
+					<div
 						className={styles.result}
 						onClick={() => handleClick(value._id)}
 						key={key}
 					>
-						{value.title}
-					</p>
+						<div className={styles.image}>
+							<Image
+								src={value.images[0]}
+								alt={value.title}
+								width={75}
+								height={75}
+								// layout="fill"
+								objectFit="cover"
+							/>
+						</div>
+						<div className={styles.title}>
+							{value.title}
+						</div>
+					</div>
 				);
 			})}
 			</div>

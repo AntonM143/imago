@@ -32,7 +32,7 @@
   background-color: black;
   position: absolute;
   background-color: $color-white;
-  
+
   div {
     display: flex;
     justify-content: space-between;
@@ -44,7 +44,7 @@
 }
 
 .flip {
-  animation: flipY 200ms forwards;
+  animation: flipY 500ms forwards;
 }
 
 .inStock {

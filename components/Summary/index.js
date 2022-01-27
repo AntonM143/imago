@@ -8,7 +8,6 @@ const Summary = (props) => {
 	}
 	let itemHtml = []
 	let infoHtml = []
-	// console.log(props.cart);
 	let cart = props.cart
 	let radio = JSON.parse(cart.radio)
 	let shipping

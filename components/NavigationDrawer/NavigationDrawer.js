@@ -12,7 +12,7 @@ const NavigationDrawer = (props) => {
 	const [data, setData] = useState(null)
 	const { menuIsOpen } = useContext(UIContext);
 	const [toggleCategorys, setToggleCategorys] = useState(false);
-
+	const flip = toggleCategorys ? styles.flip : "";
 	useEffect(() => {
 		async function get() {
 			const response = await fetch(`${url_path}/api/allCategories`)
@@ -44,7 +44,7 @@ const NavigationDrawer = (props) => {
 						<div onClick={() => setToggleCategorys(!toggleCategorys)}>
 							<p>Kategorier
 							</p>
-							<span ><IoIosArrowDown /></span>
+							<span className={flip}><IoIosArrowDown /></span>
 						</div>
 					</nav>
 						<div aria-expanded={!toggleCategorys} className={styles.categoryListContainer}>

@@ -76,7 +76,7 @@
 		flex: 0.5;
 	  }
 
-	span {
+	span:first-of-type{
 		@media (max-width: $breakpoint-sm) {
 			display: none;
 		  }
