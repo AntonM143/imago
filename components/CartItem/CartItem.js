@@ -5,7 +5,6 @@ import styles from './CartItem.module.scss'
 import { GrSubtractCircle, GrAddCircle, GrTrash } from 'react-icons/gr';
 
 export default function CartItem(props) {
-
   	return (
 		<div className={styles.container}>
 			<div className={styles.leftSide}>
@@ -36,7 +35,8 @@ export default function CartItem(props) {
 						/>
 					</div>
 					<div className={styles.rightSideQuantity}>
-						<span>antal: {props.quantity} </span>
+						<span >antal:  </span>
+						<span>{props.quantity}</span>
 					</div>
 					<div className={styles.rightSideSubstract}>
 						<GrAddCircle

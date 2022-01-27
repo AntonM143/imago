@@ -16,26 +16,34 @@ const ProductDetailPage = (props) => {
   const [selectedSize, setSelectedSize] = useState(null)
   const [message, setMessage] = useState(null);
   const { screenWidth } = useContext(UIContext)
+  const [isOpen, setIsOpen] = useState(false);
 
   const selectedSizeHandler = (size) => {
     setSelectedSize(size);
   }
-  
+
+  const openOrClose = (e) => {
+	  setIsOpen(!isOpen)
+  }
+
   const onAddToCart = () => {
-    if (!selectedSize) return;
-    setMessage('Tillagd i varukorgen!')
-    setTimeout(() => {
-      setMessage(null)
-    },1000);
-    cartCtx.addProductToCart({
-      id: selectedSize.id,
-      title: props.title,
-      price: selectedSize.price,
-      size: selectedSize.size,
-	  img: props.images,
-      quantity: 1,
-	  type: "add"
-    })
+    if (!selectedSize) {
+		setIsOpen(!isOpen)
+	}else {
+		setMessage('Tillagd i varukorgen!')
+		setTimeout(() => {
+		  setMessage(null)
+		},1000);
+		cartCtx.addProductToCart({
+		  id: selectedSize.id,
+		  title: props.title,
+		  price: selectedSize.price,
+		  size: selectedSize.size,
+		  img: props.images,
+		  quantity: 1,
+		  type: "add"
+		})
+	}
   }
   const productInStock = props.variants[0].stock > 0;
   return (
@@ -66,7 +74,7 @@ const ProductDetailPage = (props) => {
             { !selectedSize ? <h1>fr. {props.variants[0].price} SEK</h1> : <h1>{selectedSize.price} SEK</h1> }
           </div>
         </section>
-        <ProductSizePicker onSelectedSize={selectedSizeHandler} variants={props.variants} />
+        <ProductSizePicker onSelectedSize={selectedSizeHandler} variants={props.variants} onOpenOrClose={openOrClose} isOpen={isOpen}/>
         <div className={styles.productInStock}>
         { productInStock ? <p className={styles.inStock}>Finns i lager!<RiCheckboxCircleLine /></p> : <p className={styles.outStock}>Ej i lager!<RiCloseCircleFill /></p>  }
           </div>

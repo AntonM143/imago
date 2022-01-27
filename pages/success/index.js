@@ -1,13 +1,11 @@
 import { getLocalstorage, clearLocalStorage  } from '@/utils/localstorage';
 import { useRouter } from 'next/router';
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import CartContext from 'store/cart-context';
 import { url_path } from 'config';
 import Head from 'next/head';
 
 const Success = () => {
-	const [cart, setCart] = useState(null)
-	const [orderDetails, setOrderDetails] = useState(null)
 	const { clearCart } = useContext(CartContext);
 	const router = useRouter();
 
@@ -15,16 +13,14 @@ const Success = () => {
 		// Create PaymentIntent as soon as the page loads
 		const params = new URLSearchParams(window.location.search)
 		let payment_intent = params.get('payment_intent')
-		setCart(getLocalstorage('cart'))
-		setOrderDetails(getLocalstorage('checkoutSession'))
-		clearCart()
-		clearLocalStorage()
+		const cart = getLocalstorage('cart')
+		const orderDetails = getLocalstorage('checkoutSession')
+
 		if(!payment_intent) {
 			router.push({
 				pathname: '/404'
 			})
 		}
-
 		if (cart !== null) {
 			let wholeCart = Object.assign(cart, orderDetails)
 			async function fetchMyAPI() {
@@ -33,7 +29,7 @@ const Success = () => {
 				res = await res.json()
 				/* add to DB */
 				if(res.query !== payment_intent) {
-	
+
 					let res = await fetch(`${url_path}/api/success/${payment_intent}`, {
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
@@ -41,9 +37,11 @@ const Success = () => {
 					})
 					res = await res.json()
 				}
+				clearCart()
+				clearLocalStorage()
 			}
 			fetchMyAPI()
-			
+
 		  }
 
 	  }, []);

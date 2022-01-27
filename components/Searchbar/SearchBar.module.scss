@@ -8,6 +8,8 @@
 	div {
 		display: flex;
 		padding: 0.4rem 1rem;
+		justify-content: center;
+		align-items: center;
 	}
 }
 
@@ -28,18 +30,39 @@
 	flex-direction: column;
 	position: absolute;
 	z-index: 1000;
-	width: 70%;
-	background-color: #f2f3f7;
-	margin-top: 1.7em;
-	font-size: 1.5rem;
+	width: 100%;
+	background-color: #fefefe;
+	margin-top: 1.6em;
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	overflow: hidden;
 	overflow-y: auto;
 	text-align: center;
-	left: 1rem;
+	border: thin solid #b5c1c0;
+	border-radius: 20px;
+
+	@media (max-width: $breakpoint-sm) {
+		font-size: medium;
+		margin-top: 1.9em;
+	}
 }
 
 .result {
-	margin: 1em 0;
+	width: 100%;
 }
+
+.image {
+	width: 50%;
+}
+
+.title {
+	width: 50%;
+	font-size: 0.45em;
+
+	@media (max-width: $breakpoint-sm) {
+		font-size: medium;
+	}
+}
+
+
+
 

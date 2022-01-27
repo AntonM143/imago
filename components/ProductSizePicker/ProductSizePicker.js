@@ -3,25 +3,26 @@ import styles from './ProductSizePicker.module.scss';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiCloseCircleFill,  RiCheckboxCircleLine } from 'react-icons/ri';
 
-const ProductSizePicker = ({ variants, onSelectedSize, onSelectSize }) => {
-const [isOpen, setIsOpen] = useState(false);
+const ProductSizePicker = ({ variants, onSelectedSize, onSelectSize, onOpenOrClose, isOpen }) => {
+
 const [selectedSize, setSelectedSize] = useState()
-const flip = isOpen ? styles.flip : '';
+const flip = isOpen ? styles.flip : "";
 
 
 const sizeHandler = (size) => {
 	if(size.stock < 1) {
 		return
-	}else {
+	}
+	else {
 		setSelectedSize(size.size)
 		onSelectedSize(size)
-		setIsOpen(false)
+		onOpenOrClose(!isOpen)
 	}
 }
 
   return (
     <div className={styles.sizePickerContainer}>
-      <div onClick={() => setIsOpen(!isOpen)} className={styles.currentSize}>
+      <div onClick={() => onOpenOrClose(!isOpen)} className={styles.currentSize}>
         { !selectedSize ? <p>Välj storlek:</p> : <p>{selectedSize} cm</p>}
         <span className={flip}><IoIosArrowDown /></span>
       </div>
