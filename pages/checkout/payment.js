@@ -1,27 +1,22 @@
-import Button from '@/components/Button/Button';
-import Cart from '@/components/Cart/Cart';
-import React, { useContext } from 'react'
+import Payment from '@/components/Payment/Payment';
+import React, { useContext } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Button from '@/components/Button/Button';
 import CartContext from 'store/cart-context';
 import styles from './index.module.scss';
-
-
+import { useRouter } from 'next/router';
 
 const Checkout = () => {
-	const { cart } = useContext(CartContext);
-	const router = useRouter();
-
+  const router = useRouter();
+  const { cart } = useContext(CartContext);
 	return (
 		<>
 		<Head>
-			<title>Checkout</title>
+			<title>Payment</title>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
-
-
 		<div style={{ width: '100%' }}>
-			{cart.items.length > 0 ? <><Cart /><Button onClick={() => router.push('/checkout/shipping')}>Till Beställning</Button></>
+			{cart.items.length > 0 ? <Payment />
 			: 
 			<div className={styles.emptyCart}>
 				<h1>Varukorgen är tom!</h1>
