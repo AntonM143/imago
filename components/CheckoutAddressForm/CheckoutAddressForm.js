@@ -1,15 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { useForm, FormProvider } from "react-hook-form";
+import React, { useEffect, useState, useMemo } from 'react'
+import { useForm, FormProvider, setValue } from "react-hook-form";
 import CheckoutInput from '@/components/CheckoutInput/CheckoutInput';
 import styles from './CheckoutAddressForm.module.scss';
 import Button from '../Button/Button';
+import { useRouter } from 'next/router';
+import { getLocalstorage, setLocalstorage } from '@/utils/localstorage';
 
 
 
 const CheckoutAddressForm = (props) => {
+  const router = useRouter();
+  const [data, setData] = useState();
   const items = [{name:'firstname', title: 'Förnamn'}, {name:'lastname', title: 'Efternamn'}, {name:'address', title: 'Adress'}, {name:'postal', title: 'Postnummer'}, {name:'city', title: 'Postort'},{name:'mail', title: 'E-postadress'}];
-  const methods = useForm({ defaultValues: props.storedData })
-  const onSubmit = data => props.onFormData(data);
+  const methods = useForm({ defaultValues: useMemo(() => {
+    data
+  },[data])})
+  
+  useEffect(() => {
+    if (localStorage.getItem("checkoutSession") !== null) {
+      const storedData = getLocalstorage('checkoutSession')
+      setData(storedData);
+    }
+    methods.reset(storedData)
+  }, [])
+
+  const onSubmit = data => {
+    setLocalstorage(data, 'checkoutSession')
+    router.push('/checkout/payment')
+  };
 
   return (
     <div className={styles.formContainer}>

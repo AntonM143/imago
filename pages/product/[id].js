@@ -9,7 +9,6 @@ import Head from 'next/head';
 
 const Product = ({ data }) => {
 
-const router = useRouter()
 	return (
 		<>
 		<Head>
