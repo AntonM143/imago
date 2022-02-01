@@ -17,7 +17,7 @@ const Shipping = () => {
 			<title>Shipping</title>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
-		<div style={{ width: '100%' }}>
+		<div className={styles.checkoutContainer}>
 			{cart.items.length > 0 ? <CheckoutAddressForm />
 			: 
 			<div className={styles.emptyCart}>

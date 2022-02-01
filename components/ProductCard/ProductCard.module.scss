@@ -6,21 +6,20 @@
 
   cursor: pointer;
  	 &:nth-child(3n +1) {
-
 		margin-left: 0;
-	}
-  @media (max-width: $breakpoint-lg) {
-      width: calc(50% - 1rem);
-      margin: 1rem 0.5rem;
-
-	&:nth-child(2n + 1) {
-		margin-left: 0.5rem;
-	}
-  }
-
-
+	} 
 }
 
+@media (max-width: $breakpoint-xl) {
+  .ProductCardContainer {
+    flex: 0 1 calc(50% - 1rem);
+    margin-right: 0.5rem;
+    cursor: pointer;
+      &:nth-child(n +1) {
+      margin-left: 0.5rem;
+    } 
+  }
+}
 .productTitle {
   margin-top: 0.8rem;
 }
