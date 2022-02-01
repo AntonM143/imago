@@ -2,9 +2,4 @@
 
 .layoutMain {
   @include display-flex(column);
-  padding-top: 4rem;
-  align-items: center;
-  max-width: 75rem;
-  margin: 0 auto;
-  min-height: 1500px;
 }

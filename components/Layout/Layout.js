@@ -7,6 +7,7 @@ import UIContext from 'store/ui-context'
 import { useLottie } from "lottie-react";
 import animationData from '@/utils/animation/lottie.json';
 
+
 export default function Layout( props ) {
 	const options = {
     animationData: animationData,

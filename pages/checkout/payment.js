@@ -15,7 +15,7 @@ const Checkout = () => {
 			<title>Payment</title>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
-		<div style={{ width: '100%' }}>
+		<div className={styles.checkoutContainer}>
 			{cart.items.length > 0 ? <Payment />
 			: 
 			<div className={styles.emptyCart}>

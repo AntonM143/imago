@@ -20,7 +20,7 @@ const Checkout = () => {
 		</Head>
 
 
-		<div style={{ width: '100%' }}>
+		<div className={styles.checkoutContainer}>
 			{cart.items.length > 0 ? <><Cart /><Button onClick={() => router.push('/checkout/shipping')}>Till Beställning</Button></>
 			: 
 			<div className={styles.emptyCart}>
