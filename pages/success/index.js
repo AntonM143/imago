@@ -4,6 +4,7 @@ import React, { useContext, useEffect } from 'react'
 import CartContext from 'store/cart-context';
 import { url_path } from 'config';
 import Head from 'next/head';
+import Hero from '@/components/Hero/Hero';
 
 const Success = () => {
 	const { clearCart } = useContext(CartContext);
@@ -52,7 +53,11 @@ const Success = () => {
 				<title>Tack för ditt köp!</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-     	<h1>DET GICK BRA</h1>
+			<Hero
+				btnText={'Tillbaka till startsidan'}
+				title={'Köpet gick bra, din order är skickad!'}
+				buttonHref={'/'}
+			/>
     </div>
   )
 }
