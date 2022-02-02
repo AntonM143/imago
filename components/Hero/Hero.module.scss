@@ -9,7 +9,7 @@
 .heroContentContainer {
   padding: 1rem 2rem;
   position: absolute;
-  background-color: rgba(255, 255, 255, .15);  
+  background-color: rgba(255, 255, 255, .15);
   backdrop-filter: blur(5px);
   color: white;
   z-index: 10;
@@ -19,5 +19,6 @@
 }
 
 .heroImageContainer {
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }

@@ -5,7 +5,9 @@ import { CartContextProvider } from '../store/cart-context';
 import NextNProgress from 'nextjs-progressbar';
 import '../styles/transitions.css'
 import Script from 'next/script';
+
 function MyApp({ Component, pageProps }) {
+
   return (
     <>
     <Script
@@ -25,7 +27,7 @@ function MyApp({ Component, pageProps }) {
           height={3}
           showOnShallow={true}
         />
-        <Layout>
+        <Layout >
           <Component {...pageProps} />
         </Layout>
       </UIContextProvider>
