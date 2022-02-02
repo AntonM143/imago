@@ -27,7 +27,7 @@ const Hero = (props) => {
           width={1920}
           objectFit="cover"
           objectPosition={'center'}
-          layout='responsive'
+          layout='fill'
         />
       </div>
     </div>);

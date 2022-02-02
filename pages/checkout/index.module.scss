@@ -1,8 +1,11 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .checkoutContainer {
-  max-width: 75rem;
-  margin: 0 auto;
+	// min-height: 60rem;
+	// @media (max-width: $breakpoint-sm) {
+	// 	min-height: 25rem;
+	// }
+	margin: 20px 20px;
 }
 
 .emptyCart {
@@ -12,5 +15,5 @@
   @include display-flex(column);
   margin-top: 10rem;
   align-items: center;
-  
+
 }

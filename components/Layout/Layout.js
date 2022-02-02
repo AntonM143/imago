@@ -6,9 +6,13 @@ import { useContext } from 'react'
 import UIContext from 'store/ui-context'
 import { useLottie } from "lottie-react";
 import animationData from '@/utils/animation/lottie.json';
+import { useRouter } from 'next/router'
+import { route } from 'next/dist/server/router'
 
 
 export default function Layout( props ) {
+	const router = useRouter()
+	console.log(router, "router");
 	const options = {
     animationData: animationData,
     loop: false,
@@ -27,7 +31,8 @@ export default function Layout( props ) {
 		<>
 			<Header View={View} onClose={toggleNavAnimation}/>
 			{menuIsOpen && <Overlay onClose={toggleNavAnimation} />}
-				<main className={styles.layoutMain}>
+				<main className={router.route === '/' || router.route === '/404' || router.route === '/success' ? styles.startPage : styles.layoutMain}>
+				{/* // <main className={styles.layoutMain}> */}
 					{props.children}
 				</main>
 			<Footer/>

@@ -27,7 +27,7 @@ const Header = (props) => {
       window.removeEventListener('scroll', scrollhandler);
     }
   }, [])
-  const fixedHeader = scrollPosition > headerHeight + 10;
+  const fixedHeader = scrollPosition > headerHeight + 30;
 
 	const { toggleMenu, menuIsOpen } = useContext(UIContext);
 	const { cart } = useContext(CartContext);
