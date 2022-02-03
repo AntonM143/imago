@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useContext} from 'react'
-import CartContext from 'store/cart-context';
+import React from 'react'
 import classes from './Summary.module.scss'
+import AppLoader from '../AppLoader/AppLoader';
 
 const Summary = (props) => {
 	let unique = -1
 	if(!props.cart.address) {
-		return "loading.."
+		return '';
 	}
 	let itemHtml = []
 	let infoHtml = []

@@ -17,7 +17,6 @@ const Shipping = () => {
 			<title>Shipping</title>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 		</Head>
-		<div className={styles.checkoutContainer}>
 			{cart.items.length > 0 ? <CheckoutAddressForm />
 			: 
 			<div className={styles.emptyCart}>
@@ -25,7 +24,6 @@ const Shipping = () => {
 				<Button onClick={() => router.push('/')}>Tillbaka Till Startsidan</Button>
 			</div>
 			}
-		</div>
 	</>
 	  );
 }
