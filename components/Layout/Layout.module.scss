@@ -1,6 +1,8 @@
 @use '../../styles/tokens.module.scss' as *;
 
 .layoutMain {
+  display: flex;
+  flex: 1;
   margin-top: 100px;
   @include display-flex(column);
   max-width: 75rem;
