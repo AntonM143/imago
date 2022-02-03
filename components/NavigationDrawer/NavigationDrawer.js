@@ -34,13 +34,13 @@ const NavigationDrawer = (props) => {
 							<SearchBar />
 						</div>
 					<nav className={styles.navigationMenu}>
-						<div>
-							<Link  href={'/allProducts'}>
-							<a>
-								<p onClick={props.onClose}>Alla Produkter</p>
-							</a>
-							</Link>
-						</div>
+						<Link href={'/posters/all-products'}>
+						<a>
+							<div onClick={props.onClose}>
+									<p >Alla Produkter</p>
+							</div>
+						</a>
+						</Link>
 						<div onClick={() => setToggleCategorys(!toggleCategorys)}>
 							<p>Kategorier
 							</p>

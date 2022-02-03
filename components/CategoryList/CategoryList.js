@@ -19,6 +19,8 @@ const CategoryList = (props) => {
           height={100}
           objectFit='cover'
           layout='responsive'
+          placeholder="blur"
+          blurDataURL={props.img}
         />
       </div>
       <p className={styles.categoryTitle}>{props.title}</p>

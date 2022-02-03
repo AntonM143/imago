@@ -53,7 +53,7 @@ const Success = () => {
 	  }, []);
 
   return (
-    <div>
+    <>
 			<Head>
 				<title>Tack för ditt köp!</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -63,7 +63,7 @@ const Success = () => {
 				title={'Köpet gick bra, din order är skickad!'}
 				buttonHref={'/'}
 			/>
-    </div>
+    </>
   )
 }
 

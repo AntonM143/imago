@@ -15,7 +15,7 @@ const [options, setOptions] = useState([])
 // const [selectedFilter, setSelectedFilter] = useState(null)
 	useEffect(() => {
 		async function get() {
-			const response = await fetch(`${url_path}/api/allProducts`)
+			const response = await fetch(`${url_path}/api/posters/all-products`)
 			const data = await response.json()
 			setData(data)
 		}

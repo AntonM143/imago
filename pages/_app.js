@@ -9,26 +9,32 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import AppLoader from '@/components/AppLoader/AppLoader';
 
+const rootStyles = {
+  display: 'flex',
+  minHeight: '100vh',
+  flexDirection: 'column',
+}
 
 function MyApp({ Component, pageProps }) {
-    const router = useRouter()
+  const router = useRouter()
     const [loading, setLoading] = useState(false)
-  
-    useEffect(() => { //<-- this useEffect will be triggered just one time at component initialization
-        router.events.on("routeChangeStart", () => {
-           console.log("Route is changing");
-           setLoading(true)
-        });
-        router.events.on("routeChangeComplete", () => {
-           console.log("Route is changed");
-           setLoading(false)
-        });
+
+    useEffect(() => {
+      const handleStart = () => {
+        setLoading(true)
+      }
+      const handleStop = () => {
+        setLoading(false)
+      }
+      router.events.on("routeChangeStart", handleStart);
+      router.events.on("routeChangeComplete", handleStop);
+
+      return () => {
+        router.events.off("routeChangeStart", handleStart)
+        router.events.off("routeChangeComplete", handleStop)
+      }
     }, []);
-  const rootStyles = {
-    display: 'flex',
-    minHeight: '100vh',
-    flexDirection: 'column',
-  }
+
   return (
     <div style={rootStyles}>
     <Script
