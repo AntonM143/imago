@@ -3,14 +3,19 @@ import styles from './Hero.module.scss';
 import Image from 'next/image';
 import Button from '../Button/Button';
 import { IoMdArrowForward } from 'react-icons/io';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import DeliveryLottie from '../DeliveryLottie/DeliveryLottie';
 
 const Hero = (props) => {
 	const router = useRouter()
+
+  const showLottie = router.route === '/success';
+
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroContentContainer}>
         <h1>{props.title}</h1>
+        { showLottie && <DeliveryLottie />}
         <Button
 			onClick={() => {
 				router.push({

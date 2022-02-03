@@ -6,6 +6,7 @@ import Button from '../Button/Button';
 import { useRouter } from 'next/router';
 import { getLocalstorage, setLocalstorage } from '@/utils/localstorage';
 import PostNord from '../../public/images/postnord.svg'
+import DeliveryBox from '../../public/images/deliverybox.svg'
 
 
 const CheckoutAddressForm = (props) => {
@@ -48,17 +49,32 @@ const CheckoutAddressForm = (props) => {
               <h1>Frakt</h1>
             </header>
             <div className={styles.shippingItem}>
-              <label>Hämta på vårat lager</label>
-              <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
-              <p>Kan hämtas efter 24h</p>
+              <div className={styles.shippingLabel}>
+                <section>
+                  <DeliveryBox />
+                </section>
+              </div>
+              <div>
+                <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
+              </div>
+              <div>
+                <label>PostNord</label>
+                <p>Frakt 1-3 dagar</p>
+              </div>
             </div>
             <div className={styles.shippingItem}>
-              <label>PostNord</label>
               <div className={styles.shippingLabel}>
-                <PostNord />
+                <section>
+                  <PostNord />
+                </section>
               </div>
-              <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
-              <p>Frakt 1-3 dagar</p>
+              <div>
+                <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
+              </div>
+              <div>
+                <label>PostNord</label>
+                <p>Frakt 1-3 dagar</p>
+              </div>
             </div>
           </div>
          {/* <input type="submit" /> */}
