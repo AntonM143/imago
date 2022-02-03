@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 
 export default function Layout( props ) {
 	const router = useRouter()
-	console.log(router, "router");
+
 	const options = {
     animationData: animationData,
     loop: false,

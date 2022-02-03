@@ -48,11 +48,15 @@ const [options, setOptions] = useState([])
 		}
 		const uniqueVariants = Array.from(options.reduce((map, obj) => map.set(obj.label, obj), new Map()).values());
 		return (
-			<>
+			<div className={classes.allProductsContainer}>
 				<Head>
 					<title>Alla Produkter</title>
 					<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				</Head>
+				<header>
+					<h1>Alla Posters</h1>
+					<p>Hos Imago hittar du ett brett utbud av posters av högsta kvalitet. Inspirerad av skandinavisk design erbjuder vi en unik samling affischer, tryck och målningar. Alla våra affischer är tryckta på exklusivt papper som är miljöcertifierat.</p>
+				</header>
 				<div className={classes.select}>
 					<Select
 						// isMulti
@@ -63,7 +67,7 @@ const [options, setOptions] = useState([])
 					/>
 				</div>
 				{<ProductList data={filteredData.length > 0 ? filteredData : data}/>}
-		  </>)
+		  </div>)
 	}
 }
 

@@ -7,9 +7,13 @@ import '../styles/transitions.css'
 import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
-
+  const rootStyles = {
+    display: 'flex',
+    minHeight: '100vh',
+    flexDirection: 'column',
+  }
   return (
-    <>
+    <div style={rootStyles}>
     <Script
       id="Cookiebot"
       src="https://consent.cookiebot.com/uc.js"
@@ -32,7 +36,7 @@ function MyApp({ Component, pageProps }) {
         </Layout>
       </UIContextProvider>
     </CartContextProvider>
-    </>
+    </div>
     )
 }
 
