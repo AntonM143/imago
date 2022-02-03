@@ -35,8 +35,8 @@ const NavigationDrawer = (props) => {
 						</div>
 					<nav className={styles.navigationMenu}>
 						<Link href={'/posters/all-products'}>
-						<a>
-							<div onClick={props.onClose}>
+						<a onClick={props.onClose}>
+							<div>
 									<p >Alla Produkter</p>
 							</div>
 						</a>
