@@ -5,8 +5,25 @@ import { CartContextProvider } from '../store/cart-context';
 import NextNProgress from 'nextjs-progressbar';
 import '../styles/transitions.css'
 import Script from 'next/script';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import AppLoader from '@/components/AppLoader/AppLoader';
+
 
 function MyApp({ Component, pageProps }) {
+    const router = useRouter()
+    const [loading, setLoading] = useState(false)
+  
+    useEffect(() => { //<-- this useEffect will be triggered just one time at component initialization
+        router.events.on("routeChangeStart", () => {
+           console.log("Route is changing");
+           setLoading(true)
+        });
+        router.events.on("routeChangeComplete", () => {
+           console.log("Route is changed");
+           setLoading(false)
+        });
+    }, []);
   const rootStyles = {
     display: 'flex',
     minHeight: '100vh',
@@ -32,7 +49,7 @@ function MyApp({ Component, pageProps }) {
           showOnShallow={true}
         />
         <Layout >
-          <Component {...pageProps} />
+          { loading ? <AppLoader /> : <Component {...pageProps} />}
         </Layout>
       </UIContextProvider>
     </CartContextProvider>

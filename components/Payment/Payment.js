@@ -6,6 +6,7 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import classes from './Payment.module.scss'
 import Summary from '../Summary';
 import { getLocalstorage } from '@/utils/localstorage';
+import AppLoader from '../AppLoader/AppLoader';
 
 const stripePromise = loadStripe("pk_test_51Jc3YTL7WEpn3e73oCXBMlM0vm3JlZAxzafuAXjnk2lmp8EvXL7ee8k6iucQlBeLE2CyUzdokmc0vvKOGWXZgAy600AxOre3VM");
 
@@ -24,7 +25,6 @@ const Payment = () => {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
-
   }, []);
 
   const appearance = {
@@ -34,18 +34,22 @@ const Payment = () => {
     clientSecret,
     appearance,
   };
+
+
+
 	return (
 		<div className={classes.container}>
-			<Summary cart={cart}/>
-			<div className={classes.stripeContainer}>
-
-				{clientSecret && (
-					<Elements options={options} stripe={stripePromise}>
-						<CheckoutForm/>
-					</Elements>
-				)}
-			</div>
-
+      {!clientSecret ? <AppLoader /> :
+      <>
+        <Summary cart={cart}/>
+        <div className={classes.stripeContainer}>
+          {clientSecret && (
+            <Elements options={options} stripe={stripePromise}>
+              <CheckoutForm/>
+            </Elements>
+          )}
+        </div>
+      </>}
 		</div>
 	  );
 }
