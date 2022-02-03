@@ -58,8 +58,11 @@ const CheckoutAddressForm = (props) => {
                 <input {...methods.register('radio', { required: true })} type="radio" value='{"type": "pickup", "price": "0"}'/>
               </div>
               <div>
-                <label>PostNord</label>
-                <p>Frakt 1-3 dagar</p>
+                <label>Hämta på lager</label>
+                <p>Vanligtvis inom 24h</p>
+              </div>
+              <div>
+                0:-
               </div>
             </div>
             <div className={styles.shippingItem}>
@@ -74,6 +77,9 @@ const CheckoutAddressForm = (props) => {
               <div>
                 <label>PostNord</label>
                 <p>Frakt 1-3 dagar</p>
+              </div>
+              <div>
+                99:-
               </div>
             </div>
           </div>

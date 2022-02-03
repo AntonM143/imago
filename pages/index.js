@@ -9,7 +9,7 @@ export default function Home() {
         <link rel="shortcut icon" type="image/svg+xml" href="/imago.svg" />
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
-      <Hero title="Handla fina posters" btnText="Handla nuuuu" />
+      <Hero title="Kolla in vårat utbud av posters" buttonHref="/allProducts" btnText="Alla Posters" />
     </>
   )
 }
