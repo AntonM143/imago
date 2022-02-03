@@ -3,6 +3,7 @@ import CartContext from 'store/cart-context';
 import classes from './Summary.module.scss'
 
 const Summary = (props) => {
+	let unique = -1
 	if(!props.cart.address) {
 		return "loading.."
 	}
@@ -25,9 +26,8 @@ const Summary = (props) => {
 	}else {
 		shipping = "Hämta på lagret"
 	}
-
 		infoHtml.push(
-			<ul className={classes.ul}>
+			<ul key={unique--} className={classes.ul}>
 				<li className={classes.item}>
 					<h3>Förnamn: </h3>
 						<p>{cart.firstname}</p>

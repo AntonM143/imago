@@ -31,9 +31,10 @@ const ProductDetailPage = (props) => {
 		setIsOpen(!isOpen)
 	}else {
 		setMessage('Tillagd i varukorgen!')
-		setTimeout(() => {
-		  setMessage(null)
+			setTimeout(() => {
+			setMessage(null)
 		},1000);
+		clearTimeout()
 		cartCtx.addProductToCart({
 		  id: selectedSize.id,
 		  title: props.title,
