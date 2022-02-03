@@ -1,8 +1,6 @@
 import React from 'react';
 import ProductDetailPage from '../../components/ProductDetailPage/ProductDetailPage';
 import { connectToDatabase } from '@/utils/mongodb';
-import { useRouter } from 'next/router';
-import { url_path } from '../../config/index';
 import { ObjectId } from 'mongodb';
 import Head from 'next/head';
 
