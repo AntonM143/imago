@@ -16,6 +16,7 @@ const Success = () => {
 		let payment_intent = params.get('payment_intent')
 		const cart = getLocalstorage('cart')
 		const orderDetails = getLocalstorage('checkoutSession')
+		// console.log(payment_intent, "123123");
 
 		if(!payment_intent) {
 			router.push({
@@ -43,7 +44,11 @@ const Success = () => {
 			}
 			fetchMyAPI()
 
-		  }
+		} else {
+			router.push({
+				pathname: '/404'
+			})
+		}
 
 	  }, []);
 
