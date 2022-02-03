@@ -8,6 +8,11 @@
   }
 }
 
+.shippingLabel {
+  width: 50px;
+  height: 50px;
+}
+
 .checkoutForm {
   @include display-flex(row);
   flex-wrap: wrap;

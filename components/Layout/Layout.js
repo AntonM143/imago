@@ -7,7 +7,6 @@ import UIContext from 'store/ui-context'
 import { useLottie } from "lottie-react";
 import animationData from '@/utils/animation/lottie.json';
 import { useRouter } from 'next/router'
-import { route } from 'next/dist/server/router'
 
 
 export default function Layout( props ) {
