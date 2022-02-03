@@ -7,22 +7,23 @@ export default function Footer() {
 	return (
 		<div className={styles.footer}>
 			<div className={styles.footerInner}>
-
 				<div className={styles.info}>
 						<Link
 							href={'/about'}
 						>
+						<a>
 							<h3>Om Imago</h3>
+						</a>
 						</Link>
-						<Link
-							href={'/about'}
-						>
-							<p>Integritetspolicy</p>
+						<Link href={'/about'}>
+							<a>
+								<p>Integritetspolicy</p>
+							</a>
 						</Link>
-						<Link
-							href={'/about'}
-						>
-							<p>Köpvilkor</p>
+						<Link href={'/about'}>
+							<a>
+								<p>Köpvilkor</p>
+							</a>
 						</Link>
 				</div>
 
@@ -35,10 +36,10 @@ export default function Footer() {
 				<div className={styles.paymentOptions}>
 					<Stripe />
 				</div>
-			<div className={styles.footnote}>
-				<p>Det är en demobutik.</p>
-				<p>Imago info@imago.se. Göteborgsgatan 1 411 13 Göteborg. </p>
-			</div>
+				<div className={styles.footnote}>
+					<p>Det är en demobutik.</p>
+					<p>Imago info@imago.se. Göteborgsgatan 1 411 13 Göteborg. </p>
+				</div>
 			</div>
 		</div>
 	)

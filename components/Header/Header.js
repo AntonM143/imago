@@ -16,6 +16,7 @@ const Header = (props) => {
   const headerRef = useRef();
   const [headerHeight, setHeaderHeight] = useState();
   const [scrollPosition, setScrollPostion] = useState();
+  const { cart } = useContext(CartContext);
 
   useEffect(() => {
     const scrollhandler = () => {
@@ -27,18 +28,13 @@ const Header = (props) => {
       window.removeEventListener('scroll', scrollhandler);
     }
   }, [])
-  const fixedHeader = scrollPosition > headerHeight + 30;
 
-	const { toggleMenu, menuIsOpen } = useContext(UIContext);
-	const { cart } = useContext(CartContext);
-
-
-
-
+  const fixedHeader = scrollPosition > headerHeight + 10;
 	let quantityInCart = cartQuantity(cart.items)
 
   return (
     <>
+    <div style={{height: headerHeight}}>
       <header ref={headerRef} className={ !fixedHeader ? classes.headerContainer : `${classes.headerContainer} ${classes.fixedHeader}`} >
         <section className={ classes.headerBar}>
           <nav className={classes.headerMainNav}>
@@ -70,6 +66,7 @@ const Header = (props) => {
           </nav>
         </section>
       </header>
+    </div>
       <NavigationDrawer onClose={props.onClose} />
     </>
   )

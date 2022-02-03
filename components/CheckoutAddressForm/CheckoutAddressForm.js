@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useMemo } from 'react'
-import { useForm, FormProvider, setValue } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import CheckoutInput from '@/components/CheckoutInput/CheckoutInput';
 import styles from './CheckoutAddressForm.module.scss';
 import Button from '../Button/Button';
 import { useRouter } from 'next/router';
 import { getLocalstorage, setLocalstorage } from '@/utils/localstorage';
-
+import PostNord from '../../public/images/postnord.svg'
 
 
 const CheckoutAddressForm = (props) => {
@@ -54,6 +54,9 @@ const CheckoutAddressForm = (props) => {
             </div>
             <div className={styles.shippingItem}>
               <label>PostNord</label>
+              <div className={styles.shippingLabel}>
+                <PostNord />
+              </div>
               <input {...methods.register('radio', { required: true })}  type="radio" value='{"type": "delivery", "price": "99"}'/>
               <p>Frakt 1-3 dagar</p>
             </div>
