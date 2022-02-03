@@ -35,8 +35,6 @@ const Payment = () => {
     appearance,
   };
 
-
-
 	return (
 		<div className={classes.container}>
       {!clientSecret ? <AppLoader /> :
