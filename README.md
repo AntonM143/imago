@@ -1,3 +1,5 @@
+Detta är ett examensarbete, sidan är en demo sida
+
 We have created a easy to use e-commerce site where we sell posters under the brand “Imago''. On the page you can choose between different categories and then select the specific product. Once at the specific product page, you also get to make a choice on which size you want to buy. Then you go to the shopping cart, get a summary of which products you added to the shopping cart, here you can also change the quantity of the products you added. Then you go ahead and fill in your contact information and make a choice of shipping method. And finally, you move on to complete the purchase.
 We have learned to create a complete e-commerce with a technology stack containing NextJS, MongoDB and nodeJS. And through agile methods be able to set up a plan with a sustainable structure to be able to build an e-commerce with a focus on user-friendliness and a simple purchase flow.
 
